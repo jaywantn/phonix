@@ -1,0 +1,7 @@
+#header .logo img, #footer .logo img, .chaser .logo img{
+    opacity: 1;
+}
+#main-menu ul.menu > li > a, .chaser ul.menu > li > a{
+    font-size: 17px;
+    font-weight: 600;
+}

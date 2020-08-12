@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { MyModalComponent } from './modal/my-modal.component';
 import { HomeComponent } from './page/home.component';
-// import { ProjectItemComponent } from './page/project-item/project-item.component';
+import { HomeBannerComponent } from './home-banner/home-banner.component';
 // import { ProjectDetailsComponent } from './page/project-details/project-details.component';
 
 import { HomeRoutingModule } from './home.routing';
@@ -12,6 +12,7 @@ import { HomeRoutingModule } from './home.routing';
 @NgModule({
   declarations: [
     HomeComponent,
+    HomeBannerComponent,
     MyModalComponent
   ],
   imports: [ HomeRoutingModule],

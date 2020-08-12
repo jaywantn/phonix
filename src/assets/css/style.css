@@ -1342,7 +1342,7 @@ img.full-width {
 }
 
 .global-map-area {
-  background: url("http://placehold.it/2080x1000") no-repeat;
+  background: url("../images/2080-1000.jpg") no-repeat;
 }
 .global-map-area .description p {
   color: #7c9abd;
@@ -4095,9 +4095,6 @@ ul.check-circle li:before {
   -ms-border-radius: 50% 50% 50% 50%;
   border-radius: 50% 50% 50% 50%;
   overflow: hidden;
-  -webkit-transform: translateZ(0);
-  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 }
 .image-style.style2 .image-block li a img {
   height: 100%;

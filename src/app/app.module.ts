@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   declarations: [
     AppComponent,
     NavComponent,
-    FooterComponent,
+    FooterComponent 
   ],
   imports: [
     BrowserModule,

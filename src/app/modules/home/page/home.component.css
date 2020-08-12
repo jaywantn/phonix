@@ -1,0 +1,11 @@
+.masonry-item {
+  width: 350px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+.listing-style1.flight .action .button, .listing-style1.car .action .button{
+  background: #2d3e52;
+}
+#content {
+  margin-top: 1rem;
+}
