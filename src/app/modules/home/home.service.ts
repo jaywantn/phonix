@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -7,27 +7,16 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HomeService {
-  apiUrl: string = 'http://localhost/phoenixdeveloper/api/banner/bannerList';
+  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/banner/bannerList';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-  bannerList ;
+  bannerList;
 
   constructor(private http: HttpClient) { }
 
-  getBanner() { 
-    console.log(this.apiUrl);
-    //return this.http.get(`${this.apiUrl}`);
-    // return this.http.get(this.apiUrl).subscribe( (data) =>{
-    //   console.log(data);
-    // } );
-     this.http.get(this.apiUrl).subscribe(
-      data => {
-        console.log(data);
-        return data;
-      },
-      error => console.log('Could not load todos.')
-    );
+  public getBanner(): Observable<any> {
+    return this.http.get(this.apiUrl);
   }
-  // Handle Errors 
+  // Handle Errors
   error(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

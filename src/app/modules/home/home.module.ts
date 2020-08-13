@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
-// import { NgxMasonryModule } from 'ngx-masonry';
-// import { SharedModule } from '@shared/shared.module';
-
+import { CommonModule } from '@angular/common';
 import { MyModalComponent } from './modal/my-modal.component';
 import { HomeComponent } from './page/home.component';
 import { HomeBannerComponent } from './home-banner/home-banner.component';
-// import { ProjectDetailsComponent } from './page/project-details/project-details.component';
 
 import { HomeRoutingModule } from './home.routing';
 import { HomeService } from './home.service';
@@ -16,7 +13,7 @@ import { HomeService } from './home.service';
     HomeBannerComponent,
     MyModalComponent
   ],
-  imports: [ HomeRoutingModule],
+  imports: [ CommonModule, HomeRoutingModule],
   exports: [],
   providers: [HomeService],
   entryComponents: [MyModalComponent]
