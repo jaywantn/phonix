@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-// import { NgbModal } from './ng-bootstrap/ng-bootstrap';
-
-import { MyModalComponent } from '../modal/my-modal.component';
+import { HomeService } from '../home.service';
 declare var tjq: any;
 @Component({
   selector: 'app-home',
@@ -11,12 +8,17 @@ declare var tjq: any;
 })
 export class HomeComponent implements OnInit {
    // projects$: Observable<Project[]> = this.projectService.getAll();
-
+   banner; 
   constructor(
-    
-  ) {}
+    private myService: HomeService
+  ) {
+  }
+ 
+  ngOnInit() { 
 
-  ngOnInit(): void {}
+    
+    console.log( this.myService.getBanner());
+  }
   ngAfterViewInit(): void { 
     this.initScript();
   }

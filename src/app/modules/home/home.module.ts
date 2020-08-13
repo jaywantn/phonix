@@ -8,6 +8,7 @@ import { HomeBannerComponent } from './home-banner/home-banner.component';
 // import { ProjectDetailsComponent } from './page/project-details/project-details.component';
 
 import { HomeRoutingModule } from './home.routing';
+import { HomeService } from './home.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { HomeRoutingModule } from './home.routing';
   ],
   imports: [ HomeRoutingModule],
   exports: [],
-  providers: [],
+  providers: [HomeService],
   entryComponents: [MyModalComponent]
 })
 export class HomeModule {}

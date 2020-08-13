@@ -3,24 +3,24 @@ import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@a
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Project } from '@data/schema/project';
-import { ProjectService } from '@data/service/project.service';
+// import { Project } from '@data/schema/project';
+// import { ProjectService } from '@data/service/project.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectResolver implements Resolve<Project> {
+export class ProjectResolver   {
   constructor(
-    private projectService: ProjectService,
+   // private projectService: ProjectService,
     private router: Router
   ) { }
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<any> {
+  // resolve(
+  //   route: ActivatedRouteSnapshot,
+  //   state: RouterStateSnapshot
+  // ): Observable<any> {
 
-    return this.projectService.getSingle(route.params['id'])
-      .pipe(catchError((err) => this.router.navigateByUrl('/')));
-  }
+  //   return this.projectService.getSingle(route.params['id'])
+  //     .pipe(catchError((err) => this.router.navigateByUrl('/')));
+  // }
 }
