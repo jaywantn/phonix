@@ -1,22 +1,5 @@
-<div id="slideshow">
-    <div class="fullwidthbanner-container">
-        <div class="revolution-slider rev_slider" style="height: 0; overflow: hidden;">
-            <ul>
-                <!-- SLIDE  -->
-                <!-- Slide1 -->
-                <li *ngFor="let post of banner; let i = index;" data-transition="zoomin" data-slotamount="7" data-masterspeed="1500">
-                    <img src="https://www.phoenixdeveloper.in/backend/upload/banner/{{post.banner_image}}" alt="" />
-                </li>
-                <!-- <li data-transition="zoomin" data-slotamount="7" data-masterspeed="1500">
-                     <img src="assets/images/2080-680.jpg" alt="" />
-                </li>
-                <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">
-                    <img src="http://placehold.it/2080x646" alt="" />
-                </li>
-                <li data-transition="slidedown" data-slotamount="7" data-masterspeed="1500">
-                    <img src="http://placehold.it/2080x646" alt="" />
-                </li> -->
-            </ul>
-        </div>
-    </div>
-</div>
+<carousel>
+    <slide *ngFor="let post of banner; let i = index;">
+        <img src="{{post.banner_image}}" alt="first slide" style="display: block; width: 100%; max-height: 500px;">
+    </slide>
+</carousel>
