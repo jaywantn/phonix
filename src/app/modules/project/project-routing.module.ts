@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ProjectComponent } from './page/project/project.component';
 import { ProjectDetailsComponent } from './page/project-details/project-details.component';
+import { ProjectEnquiryComponent } from './page/project-enquiry/project-enquiry.component';
 const routes: Routes = [
   {
     path: '',
@@ -11,7 +12,11 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: ProjectDetailsComponent
-  }
+  },
+  {
+    path: 'enquiry/:id',
+    component: ProjectEnquiryComponent
+  },
 ];
 
 @NgModule({

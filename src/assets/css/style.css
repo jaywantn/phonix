@@ -7691,7 +7691,7 @@ ul.menu.mini li:hover a, ul.menu.mini li.active a {
   right: 0;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: farthest-corner;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
   -webkit-transition: all 0.5s ease-out;
@@ -10476,11 +10476,11 @@ ul.search-tabs li.active a {
 
 .dashboard.style1, .post-404page.style1, .soap-login-page.style1 {
   background-color: #1a232f;
-  background-image: -moz-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -webkit-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -o-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -ms-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: radial-gradient(center center, circle cover, #273648, #0d1218 100%);
+  background-image: -moz-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -webkit-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -o-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -ms-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
 }
 .dashboard.style1 #content ul.tabs li a, .post-404page.style1 #content ul.tabs li a, .soap-login-page.style1 #content ul.tabs li a {
   background: rgba(13, 18, 24, 0.6);
@@ -10511,11 +10511,11 @@ ul.search-tabs li.active a {
 /* 6.3. Style2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .dashboard.style2, .post-404page.style2 {
   background-color: #f45533;
-  background-image: -moz-radial-gradient(center center, circle cover, #f45533, #bd0000 100%);
-  background-image: -webkit-radial-gradient(center center, circle cover, #f45533, #bd0000 100%);
-  background-image: -o-radial-gradient(center center, circle cover, #f45533, #bd0000 100%);
-  background-image: -ms-radial-gradient(center center, circle cover, #f45533, #bd0000 100%);
-  background-image: radial-gradient(center center, circle cover, #f45533, #bd0000 100%);
+  background-image: -moz-radial-gradient(center center, circle farthest-corner, #f45533, #bd0000 100%);
+  background-image: -webkit-radial-gradient(center center, circle farthest-corner, #f45533, #bd0000 100%);
+  background-image: -o-radial-gradient(center center, circle farthest-corner, #f45533, #bd0000 100%);
+  background-image: -ms-radial-gradient(center center, circle farthest-corner, #f45533, #bd0000 100%);
+  background-image: radial-gradient(center center, circle farthest-corner, #f45533, #bd0000 100%);
 }
 .dashboard.style2 #content ul.tabs li a, .post-404page.style2 #content ul.tabs li a {
   background: rgba(189, 0, 0, 0.7);
@@ -10865,7 +10865,7 @@ button.ui-button::-moz-focus-inner {
 #footer .footer-wrapper > .container > .row > div {
   margin-top: 20px;
 }
-#footer .discover li {
+#footer .disfarthest-corner li {
   line-height: 2.6667em;
   font-size: 1.0833em;
 }
@@ -11929,19 +11929,19 @@ button.ui-button::-moz-focus-inner {
 }
 .coming-soon-page.style1 #page-wrapper {
   background-color: #1a232f;
-  background-image: -moz-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -webkit-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -o-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -ms-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: radial-gradient(center center, circle cover, #273648, #0d1218 100%);
+  background-image: -moz-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -webkit-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -o-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -ms-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
 }
 .coming-soon-page.style2 #page-wrapper {
   background-color: #70860e;
-  background-image: -moz-radial-gradient(center center, circle cover, #94a621, #576f00 100%);
-  background-image: -webkit-radial-gradient(center center, circle cover, #94a621, #576f00 100%);
-  background-image: -o-radial-gradient(center center, circle cover, #94a621, #576f00 100%);
-  background-image: -ms-radial-gradient(center center, circle cover, #94a621, #576f00 100%);
-  background-image: radial-gradient(center center, circle cover, #94a621, #576f00 100%);
+  background-image: -moz-radial-gradient(center center, circle farthest-corner, #94a621, #576f00 100%);
+  background-image: -webkit-radial-gradient(center center, circle farthest-corner, #94a621, #576f00 100%);
+  background-image: -o-radial-gradient(center center, circle farthest-corner, #94a621, #576f00 100%);
+  background-image: -ms-radial-gradient(center center, circle farthest-corner, #94a621, #576f00 100%);
+  background-image: radial-gradient(center center, circle farthest-corner, #94a621, #576f00 100%);
 }
 .coming-soon-page.style2 .clock, .coming-soon-page.style2 .social-icons a:hover {
   text-shadow: 1px 10px 6px rgba(0, 0, 0, 0.2);
@@ -12138,11 +12138,11 @@ button.ui-button::-moz-focus-inner {
 }
 .loading-page.style1 {
   background-color: #1a232f;
-  background-image: -moz-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -webkit-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -o-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: -ms-radial-gradient(center center, circle cover, #273648, #0d1218 100%);
-  background-image: radial-gradient(center center, circle cover, #273648, #0d1218 100%);
+  background-image: -moz-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -webkit-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -o-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: -ms-radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
+  background-image: radial-gradient(center center, circle farthest-corner, #273648, #0d1218 100%);
 }
 .loading-page.style1 .loading-text {
   font-size: 1.3333em;
@@ -12176,11 +12176,11 @@ button.ui-button::-moz-focus-inner {
 }
 .loading-page.style2 {
   background-color: #0097cb;
-  background-image: -moz-radial-gradient(center center, circle cover, #01b5f0, #0081b1 100%);
-  background-image: -webkit-radial-gradient(center center, circle cover, #01b5f0, #0081b1 100%);
-  background-image: -o-radial-gradient(center center, circle cover, #01b5f0, #0081b1 100%);
-  background-image: -ms-radial-gradient(center center, circle cover, #01b5f0, #0081b1 100%);
-  background-image: radial-gradient(center center, circle cover, #01b5f0, #0081b1 100%);
+  background-image: -moz-radial-gradient(center center, circle farthest-corner, #01b5f0, #0081b1 100%);
+  background-image: -webkit-radial-gradient(center center, circle farthest-corner, #01b5f0, #0081b1 100%);
+  background-image: -o-radial-gradient(center center, circle farthest-corner, #01b5f0, #0081b1 100%);
+  background-image: -ms-radial-gradient(center center, circle farthest-corner, #01b5f0, #0081b1 100%);
+  background-image: radial-gradient(center center, circle farthest-corner, #01b5f0, #0081b1 100%);
 }
 .loading-page.style2 .loading-progress-bar {
   box-shadow: 0 15px 6px rgba(3, 121, 165, 0.6);
@@ -12316,11 +12316,11 @@ button.ui-button::-moz-focus-inner {
 }
 .soap-login-page.style2 {
   background-color: #8f3fa1;
-  background-image: -moz-radial-gradient(center center, circle cover, #b459c8, #762d87 100%);
-  background-image: -webkit-radial-gradient(center center, circle cover, #b459c8, #762d87 100%);
-  background-image: -o-radial-gradient(center center, circle cover, #b459c8, #762d87 100%);
-  background-image: -ms-radial-gradient(center center, circle cover, #b459c8, #762d87 100%);
-  background-image: radial-gradient(center center, circle cover, #b459c8, #762d87 100%);
+  background-image: -moz-radial-gradient(center center, circle farthest-corner, #b459c8, #762d87 100%);
+  background-image: -webkit-radial-gradient(center center, circle farthest-corner, #b459c8, #762d87 100%);
+  background-image: -o-radial-gradient(center center, circle farthest-corner, #b459c8, #762d87 100%);
+  background-image: -ms-radial-gradient(center center, circle farthest-corner, #b459c8, #762d87 100%);
+  background-image: radial-gradient(center center, circle farthest-corner, #b459c8, #762d87 100%);
 }
 .soap-login-page.style2 .welcome-text {
   font-size: 2.3333em;
