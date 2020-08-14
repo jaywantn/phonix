@@ -13,7 +13,7 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  public getBanner(): Observable<any> {
+  public getBanner() {
     return this.http.get(this.apiUrl);
   }
   // Handle Errors

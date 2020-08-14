@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "./assets/css/font-awesome.min.css";
 @import "./assets/css/style.css";
 @import "./assets/css/responsive.css";
 @import "./assets/css/custom.css";
 @import "./assets/css/updates.css";
+.carousel-indicators li {
+    margin-right: 5px !important;
+}
