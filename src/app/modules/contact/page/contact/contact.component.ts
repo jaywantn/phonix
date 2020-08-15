@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactService } from '../../contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  zoom = 12
+  details: any ;
+  zoom = 12;
   center: google.maps.LatLngLiteral
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
@@ -16,15 +18,22 @@ export class ContactComponent {
     maxZoom: 15,
     minZoom: 8,
   }
+  constructor(private contactService: ContactService){}
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(position => {
       this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       }
-    })
+    });
+    this.getDetails();
   }
-
+  getDetails() {
+    this.contactService.getBanner().subscribe((data: any) => { 
+      this.details = data;
+      console.log(this.details);
+    });
+  }
   zoomIn() {
     if (this.zoom < this.options.maxZoom) this.zoom++
   }
