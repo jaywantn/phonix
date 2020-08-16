@@ -13,7 +13,15 @@
 <section id="content">
   <div class="container">
     <div id="main">
-      <div class="travelo-google-map block"></div>
+      <div class="travelo-google-map block">
+        <google-map
+        height="300px"
+        width="100%"
+        [zoom]="zoom"
+        [center]="center"
+        [options]="options"
+      ></google-map>
+      </div>
       <div class="row">
         <div class="col-sm-4 col-md-3">
           <div class="travelo-box contact-us-box">
