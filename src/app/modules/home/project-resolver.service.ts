@@ -1,7 +1,7 @@
 import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+//import { catchError } from 'rxjs/operators';
 
 // import { Project } from '@data/schema/project';
 // import { ProjectService } from '@data/service/project.service';
