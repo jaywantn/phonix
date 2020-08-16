@@ -8,14 +8,26 @@ declare var tjq: any;
 })
 export class HomeComponent implements OnInit {
    // projects$: Observable<Project[]> = this.projectService.getAll();
-   banner;
+   locationList;
+   typeList;
   constructor(
     private myService: HomeService
   ) {
   }
 
   ngOnInit() {
-
+    this.getLocation();
+    this.getPropertyType();
   }
-
+  getLocation() {
+    this.myService.getLocation().subscribe((data: any[]) => {
+      this.locationList = data;
+    });
+  }
+  getPropertyType() {
+    this.myService.getPropertyType().subscribe((data: any[]) => {
+     console.log(data);
+      this.typeList = data;
+    });
+  }
 }

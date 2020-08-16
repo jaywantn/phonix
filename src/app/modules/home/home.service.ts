@@ -7,14 +7,20 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HomeService {
-  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/banner/bannerList';
+  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   bannerList;
 
   constructor(private http: HttpClient) { }
 
   public getBanner() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.apiUrl+'banner/bannerList');
+  }
+  public getLocation() {
+    return this.http.get(this.apiUrl+'property/location');
+  }
+  public getPropertyType() {
+    return this.http.get(this.apiUrl+'property/propertyType');
   }
   // Handle Errors
   error(error: HttpErrorResponse) {

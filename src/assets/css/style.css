@@ -142,7 +142,7 @@ html {
 }
 
 body {
-  font: 75%/150% "Lato", Arial, Helvetica, sans-serif;
+  font: 90%/150% "Lato", Arial, Helvetica, sans-serif;
   background-color: #fff;
   color: #838383;
   overflow-x: hidden;
@@ -1345,7 +1345,7 @@ img.full-width {
   background: url("../images/2080-1000.jpg") no-repeat;
 }
 .global-map-area .description p {
-  color: #7c9abd;
+  color: #fff;font-weight: 700;
 }
 .global-map-area .description h1, .global-map-area .description h2, .global-map-area .description h3, .global-map-area .description h4, .global-map-area .description h5, .global-map-area .description h6 {
   color: #fff;
@@ -6207,11 +6207,11 @@ ul.check-circle li:before {
 
 /* 2.22. Animated effect ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .animated {
-  visibility: hidden;
+  visibility: revert;
 }
 
 .no-cssanimations .animated, body.is-mobile .animated {
-  visibility: visible;
+  visibility: revert;
 }
 
 /* 2.23. Parallax ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
