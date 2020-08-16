@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../../contact.service';
 
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -23,9 +23,11 @@ export class ContactComponent {
   constructor(private contactService: ContactService) {}
 
   contactForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    message: new FormControl(),
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    message: new FormControl('', [Validators.required]),
   });
 
   ngOnInit() {
@@ -36,6 +38,22 @@ export class ContactComponent {
       };
     });
     this.getDetails();
+  }
+
+  get name() {
+    return this.contactForm.get('name');
+  }
+  get email() {
+    return this.contactForm.get('email');
+  }
+  get phone() {
+    return this.contactForm.get('phone');
+  }
+  get address() {
+    return this.contactForm.get('address');
+  }
+  get message() {
+    return this.contactForm.get('message');
   }
 
   onSubmit() {
