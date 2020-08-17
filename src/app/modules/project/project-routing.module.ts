@@ -5,18 +5,12 @@ import { ProjectComponent } from './page/project/project.component';
 import { ProjectDetailsComponent } from './page/project-details/project-details.component';
 import { ProjectEnquiryComponent } from './page/project-enquiry/project-enquiry.component';
 const routes: Routes = [
-  {
-    path: '',
-    component: ProjectComponent
+  { path: '', component: ProjectComponent, children: [
+      {path: '', component: ProjectComponent, pathMatch: 'full'},
+    ]
   },
-  {
-    path: 'details/:id',
-    component: ProjectDetailsComponent
-  },
-  {
-    path: 'enquiry/:id',
-    component: ProjectEnquiryComponent
-  },
+  { path: 'details/:id', component: ProjectDetailsComponent },
+  { path: 'enquiry/:id', component: ProjectEnquiryComponent }
 ];
 
 @NgModule({
