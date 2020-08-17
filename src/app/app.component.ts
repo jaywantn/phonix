@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
   }
 
-  ngOnInit(): any {
+  ngOnInit(): void {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
     )
@@ -24,7 +24,7 @@ export class AppComponent {
       rt.data.subscribe(data => {
         this.titleService.setTitle(data.title);
       });
-    })
+    });
   }
 
   getChild(activatedRoute: ActivatedRoute): any {
