@@ -26,9 +26,9 @@ export class ProjectComponent implements OnInit {
     }
   ];
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
-  getProjectDetails() {
+  getProjectDetails(): any {
     this.router.navigate(['/project/details/2']);
   }
 }

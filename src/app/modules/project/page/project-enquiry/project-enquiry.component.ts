@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,35 +7,31 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./project-enquiry.component.css'],
 })
 export class ProjectEnquiryComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
   enquiryForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
-    // isAgree: new FormControl(),
+    address: new FormControl('', [Validators.required])
   });
 
-  get name() {
+  constructor() { }
+
+  ngOnInit(): void { }
+
+  get name(): any {
     return this.enquiryForm.get('name');
   }
-  get email() {
+  get email(): any {
     return this.enquiryForm.get('email');
   }
-  get phone() {
+  get phone(): any {
     return this.enquiryForm.get('phone');
   }
-  get address() {
+  get address(): any {
     return this.enquiryForm.get('address');
   }
-  // get isAgree() {
-  //   return this.enquiryForm.get('isAgree');
-  // }
 
-  onSubmit() {
+  onSubmit(): void {
     console.log(this.enquiryForm.value);
   }
 }
