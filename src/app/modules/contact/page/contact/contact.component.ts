@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../../contact.service';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -20,44 +20,40 @@ export class ContactComponent {
     maxZoom: 15,
     minZoom: 8,
   };
-  constructor(private contactService: ContactService) {}
+  contactForm :FormGroup;
+  submitted = false;
+  constructor(private contactService: ContactService,
+    private formBuilder: FormBuilder) {}
+  
 
-  contactForm = new FormGroup({
+  ngOnInit() {
+    
+  this.contactForm = this.formBuilder.group({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
+    mobile_no: new FormControl('', [Validators.required]),
     message: new FormControl('', [Validators.required]),
   });
 
-  ngOnInit() {
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
+        lat: 18.5204,
+        lng: 73.8567,
       };
     });
     this.getDetails();
   }
-
-  get name() {
-    return this.contactForm.get('name');
-  }
-  get email() {
-    return this.contactForm.get('email');
-  }
-  get phone() {
-    return this.contactForm.get('phone');
-  }
-  get address() {
-    return this.contactForm.get('address');
-  }
-  get message() {
-    return this.contactForm.get('message');
-  }
+   // convenience getter for easy access to form fields
+   get f() { return this.contactForm.controls; }
 
   onSubmit() {
+    this.submitted = true;
+     // stop here if form is invalid
+     if (this.contactForm.invalid) {
+        return;
+    }
     console.log(this.contactForm.value);
+    this.contactForm.reset();
   }
 
   getDetails() {
