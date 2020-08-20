@@ -11,6 +11,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class ContactComponent {
   details: any;
   zoom = 12;
+  formStatus = false;
   center: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
@@ -55,6 +56,9 @@ export class ContactComponent {
     console.log(this.contactForm.value);
     this.contactService.sendPostRequest(this.contactForm.value).subscribe(
       res => {
+        if(res == 'success'){
+          this.formStatus =true
+        }
         console.log(res);
       }
     );

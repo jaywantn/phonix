@@ -8,6 +8,8 @@ import { NavComponent } from './layout/nav/nav.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 import { CommonModule } from '@angular/common';
+import { ConfigService } from './config.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,9 @@
+import { ConfigService } from './config.service';
 import { Component } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,9 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
+  generalDetails: any = [];
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title,
+    private configService: ConfigService) {
   }
 
   ngOnInit(): void {
@@ -25,6 +26,11 @@ export class AppComponent {
         this.titleService.setTitle(data.title);
       });
     });
+    let generalData = JSON.parse(sessionStorage.getItem('generalDetails'));
+    
+    if(generalData === null ){
+      this.getDetails();
+    }
   }
 
   getChild(activatedRoute: ActivatedRoute): any {
@@ -34,5 +40,10 @@ export class AppComponent {
       return activatedRoute;
     }
   }
-
+  getDetails() {
+    this.configService.generalDetails().subscribe((data: any[]) => {
+      this.generalDetails = data;
+      sessionStorage.setItem('generalDetails', JSON.stringify(this.generalDetails));
+    });
+  }
 }

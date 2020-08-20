@@ -13,7 +13,8 @@ export class NavComponent implements OnInit {
   //public version = environment.version;
   public repoUrl = 'https://github.com/mathisGarberg/angular-folder-structure';
   public isDarkTheme$: Observable<boolean>;
-
+  phoneNumber;
+  generalData: any[] = JSON.parse(sessionStorage.getItem('generalDetails'));
   navItems = [
     { link: '/dashboard/home', title: 'Home' },
     { link: '/about', title: 'About' },
@@ -25,7 +26,7 @@ export class NavComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-   // this.isDarkTheme$ = this.themeService.getDarkTheme();
+    this.phoneNumber = this.generalData[5]['description'];
   }
 
   toggleTheme(checked: boolean) {
