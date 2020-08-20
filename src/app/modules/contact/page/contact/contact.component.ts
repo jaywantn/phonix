@@ -53,6 +53,11 @@ export class ContactComponent {
         return;
     }
     console.log(this.contactForm.value);
+    this.contactService.sendPostRequest(this.contactForm.value).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
     this.contactForm.reset();
   }
 
