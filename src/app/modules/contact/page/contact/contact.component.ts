@@ -13,6 +13,8 @@ export class ContactComponent {
   zoom = 12;
   formStatus = false;
   center: google.maps.LatLngLiteral;
+  phoneNumber;
+  generalData = JSON.parse(sessionStorage.getItem('generalDetails'));
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
     zoomControl: false,
@@ -28,13 +30,13 @@ export class ContactComponent {
   
 
   ngOnInit() {
-    
-  this.contactForm = this.formBuilder.group({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    mobile_no: new FormControl('', [Validators.required]),
-    message: new FormControl('', [Validators.required]),
-  });
+    this.phoneNumber = this.generalData[5]['description'];  
+    this.contactForm = this.formBuilder.group({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      mobile_no: new FormControl('', [Validators.required]),
+      message: new FormControl('', [Validators.required]),
+    });
 
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
