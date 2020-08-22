@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
    // projects$: Observable<Project[]> = this.projectService.getAll();
    locationList;
    typeList;
+   projectList;
   constructor(
     private myService: HomeService
   ) {
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getLocation();
     this.getPropertyType();
+    this.getPropertyList();
   }
   getLocation() {
     this.myService.getLocation().subscribe((data: any[]) => {
@@ -28,6 +30,19 @@ export class HomeComponent implements OnInit {
     this.myService.getPropertyType().subscribe((data: any[]) => {
      console.log(data);
       this.typeList = data;
+    });
+  }
+
+  getPropertyList() {
+    this.myService.getPropertyList().subscribe((data: any[]) => {
+      data.map((item) => {
+        item.img =
+          'https://www.phoenixdeveloper.in/backend/upload/property/' +
+          item.img;
+        return item;
+      });
+      this.projectList = data;
+      console.log('projectList',this.projectList )
     });
   }
 }

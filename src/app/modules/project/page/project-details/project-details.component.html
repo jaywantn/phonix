@@ -1,7 +1,7 @@
 <div class="page-title-container">
   <div class="container">
     <div class="page-title pull-left">
-      <h2 class="entry-title">Porject Details</h2>
+      <h2 class="entry-title">{{projectDetails.propertyData.title}}</h2>
     </div>
     <ul class="breadcrumbs pull-right">
       <li><a routerLink="/home">HOME</a></li>
@@ -19,7 +19,7 @@
               <div class="featured-image image-container">
                 <carousel>
                   <slide *ngFor="let post of propertyAllImages; let i = index;">
-                      <img src="http://placehold.it/870x530" alt="i" style="display: block; width: 100%; max-height: 500px;">
+                      <img src="https://www.phoenixdeveloper.in/backend/upload/property/{{post.img_name}}" alt="i" style="display: block; width: 100%; max-height: 500px;">
                   </slide>
               </carousel>
               
@@ -56,13 +56,13 @@
             </div>
             <div class="tab-pane fade" id="property-features">
               <h2>Features </h2>
-              <div [innerHtml]="projectDetails.propertyData.overview | safeHtml: 'html'"></div>
-
+              <div  [innerHtml]="projectDetails.propertyData.overview | safeHtml: 'html'"></div>
+              <div #simpleDiv></div>
               
               
             </div>
             <div class="tab-pane fade" id="property-document">
-              <h2>Select your Seats</h2>
+              <h2>Document</h2>
               <p>
                 Would you like a window seat or treat yourself to more comfort?
                 Select your seats online in advance with our easy-to-use seat
@@ -70,170 +70,19 @@
                 departure, when booking on Travelo.com. Also you can choose and
                 change your seats at a self-service machine at the airport.
               </p>
-              <hr />
-              <div class="image-box style12">
-                <article class="box">
-                  <figure>
-                    <img
-                      src="http://placehold.it/120x100"
-                      alt=""
-                      class="middle-item"
-                    />
-                  </figure>
-                  <div class="details">
-                    <h4 class="box-title">Standard advance seat selection</h4>
-                    <p>
-                      Sed aliquam nunc eget velit imperdiet, in rutrum mauris
-                      malesuada. Quisque ullamcor vulputate nisi, et fringilla
-                      ante convallis quis.
-                    </p>
-                  </div>
-                  <div class="action">
-                    <span class="price"><small>starting at</small>$18</span>
-                    <a href="flight-booking.html" class="button btn-small"
-                      >SELECT NOW</a
-                    >
-                  </div>
-                </article>
-                <hr />
-                <article class="box">
-                  <figure>
-                    <img
-                      src="http://placehold.it/120x100"
-                      alt=""
-                      class="middle-item"
-                    />
-                  </figure>
-                  <div class="details">
-                    <h4 class="box-title">Standard advance seat selection</h4>
-                    <p>
-                      Sed aliquam nunc eget velit imperdiet, in rutrum mauris
-                      malesuada. Quisque ullamcor vulputate nisi, et fringilla
-                      ante convallis quis.
-                    </p>
-                  </div>
-                  <div class="action">
-                    <span class="price"><small>starting at</small>$18</span>
-                    <a href="flight-booking.html" class="button btn-small"
-                      >SELECT NOW</a
-                    >
-                  </div>
-                </article>
-                <hr />
-                <article class="box">
-                  <figure>
-                    <img
-                      src="http://placehold.it/120x100"
-                      alt=""
-                      class="middle-item"
-                    />
-                  </figure>
-                  <div class="details">
-                    <h4 class="box-title">Standard advance seat selection</h4>
-                    <p>
-                      Sed aliquam nunc eget velit imperdiet, in rutrum mauris
-                      malesuada. Quisque ullamcor vulputate nisi, et fringilla
-                      ante convallis quis.
-                    </p>
-                  </div>
-                  <div class="action">
-                    <span class="price"><small>starting at</small>$18</span>
-                    <a href="flight-booking.html" class="button btn-small"
-                      >SELECT NOW</a
-                    >
-                  </div>
-                </article>
-                <hr />
-                <article class="box">
-                  <figure>
-                    <img
-                      src="http://placehold.it/120x100"
-                      alt=""
-                      class="middle-item"
-                    />
-                  </figure>
-                  <div class="details">
-                    <h4 class="box-title">Standard advance seat selection</h4>
-                    <p>
-                      Sed aliquam nunc eget velit imperdiet, in rutrum mauris
-                      malesuada. Quisque ullamcor vulputate nisi, et fringilla
-                      ante convallis quis.
-                    </p>
-                  </div>
-                  <div class="action">
-                    <span class="price"><small>starting at</small>$18</span>
-                    <a href="flight-booking.html" class="button btn-small"
-                      >SELECT NOW</a
-                    >
-                  </div>
-                </article>
-              </div>
+           
             </div>
             <div class="tab-pane fade" id="layout">
-              <h2>Baggage</h2>
+              <h2>Layout</h2>
               <p>
                 In this section you'll find information on baggage allowances,
                 special equipment and sports items as well as restricted items.
                 We've also included some tips to make your trip more enjoyable.
               </p>
-              <div class="baggage column-5">
-                <div class="icon-box style9">
-                  <i class="soap-icon-carryon"></i>
-                  <h5 class="box-title">Carry-on<br />Allowance</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-baggage"></i>
-                  <h5 class="box-title">Baggage<br />Allowance</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-delayed-baggage"></i>
-                  <h5 class="box-title">Delayed<br />Baggage</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-damaged-baggage"></i>
-                  <h5 class="box-title">Damaged<br />Baggage</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-baggage-status"></i>
-                  <h5 class="box-title">Baggage<br />Status</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-phone"></i>
-                  <h5 class="box-title">Baggage<br />Services</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-status"></i>
-                  <h5 class="box-title">Baggage<br />Tips</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-restricted"></i>
-                  <h5 class="box-title">Restricted<br />Items</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-liability"></i>
-                  <h5 class="box-title">Liability<br />Limitations</h5>
-                </div>
-                <div class="icon-box style9">
-                  <i class="soap-icon-lost-found"></i>
-                  <h5 class="box-title">Lost and<br />Found</h5>
-                </div>
-              </div>
+             
 
               <hr />
-              <h2>Basic Information</h2>
-              <p>
-                Sed aliquam nunc eget velit imperdiet, in rutrum mauris
-                malesuada. Quisque ullamcorper vulputate nisi, et fringilla ante
-                convallis quis. Nullam vel tellus non elit suscipit volutpat.
-                Integer id felis et nibh rutrum dignissim ut non risus. In
-                tincidunt urna quis sem luctus, sed accumsan magna pellentesque.
-                Donec et iaculis tellus. Vestibulum ut iaculis justo, auctor
-                sodales lectus. Donec et tellus tempus, dignissim maurornare,
-                consequat lacus. Integer dui neque, scelerisque nec sollicitudin
-                sit amet, sodales a erat. Duis vitae condimentum ligula. Integer
-                eu mi nisl. Donec massa dui, commodo id arcu quis, venenatis
-                scelerisque velit.
-              </p>
+              
             </div>
             <div class="tab-pane fade" id="video">
               <h2>Video</h2>

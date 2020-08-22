@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ProjectService } from '../../project.service';
@@ -14,17 +14,23 @@ import { PropertyAllImages, PropertyData} from '../../property';
     },
   ],
 })
-export class ProjectDetailsComponent implements OnInit {
+export class ProjectDetailsComponent implements OnInit,AfterViewInit {
  // project$: Observable<Project>;
   projectDetails :any ;
   project : PropertyData;
-  propertyAllImages : PropertyAllImages[] ;
+  @ViewChild('simpleDiv', { static: true }) simple;
+
+  propertyAllImages : PropertyAllImages[] =[] ;
   sample:any ;
   constructor(private route: ActivatedRoute, private projectService: ProjectService ) {}
   
   ngOnInit(): void {
   // let pid= this.route.snapshot.paramMap.get("id");
    this.getProjectDetails(this.route.snapshot.paramMap.get("id"));
+  }
+  ngAfterViewInit(){
+   // this.simple.nativeElement.innerHTML =  '<p>Internal Roads - WBM</p>↵↵<p>Provision for Electricity</p>↵↵<p>Provision for Water</p> ';
+    this.decodeHTMLEntities();
   }
   getProjectDetails(pid): any {
     this.projectService.getPropertyDetails(pid).subscribe((data: any[]) => {
@@ -43,5 +49,12 @@ export class ProjectDetailsComponent implements OnInit {
       // this.sample.push(this.projectDetails.propertyData);
       // console.log(this.sample);
     });
+    
+  }
+  decodeHTMLEntities() {
+    debugger;
+    // var textArea = document.createElement('textarea');
+    // textArea.innerHTML = text;
+    this.simple.nativeElement.innerHTML = this.projectDetails.propertyData.overview
   }
 }

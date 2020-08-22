@@ -44,60 +44,25 @@
     <div class="container section">
         <h2>Best Property Offers</h2>
         <div class="row image-box listing-style1 flight">
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-4" *ngFor="let group of projectList">
                 <article class="box">
                     <figure class="" data-animation-type="fadeInDown">
-                        <span><img alt="" src="http://placehold.it/270x160"></span>
+                        <span><img alt="{{group.title}}" src="{{group.img}}" style="height:180px"></span>
                     </figure>
                     <div class="details">
-                        <h4 class="box-title">INDUSTRIAL PLOT FOR SALE <small>Hadpsar, Pune</small></h4>
+                        <h4 class="box-title">{{group.title}}<small> Pune</small></h4>
 
                         <p class="duration fourty-space">Plot size : 2700 — 5500 sq ft</p>
                         <p class="duration fourty-space">Collector Sanctioned</p>
                         <p class="duration fourty-space">Residential Plots with 4 side Wall </p>
                         <p class="duration fourty-space">7-12 : Separate Extract for Each Plot</p>
                         <div class="action">
-                            <a class="button btn-small full-width" routerLink="details/2">More Details</a>
+                            <a class="button btn-small full-width" routerLink="/project/details/{{group.pid}}">More Details</a>
                         </div>
                     </div>
                 </article>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <article class="box">
-                    <figure class="animated" data-animation-type="fadeInDown">
-                        <span><img alt="" src="http://placehold.it/270x160"></span>
-                    </figure>
-                    <div class="details">
-                        <h4 class="box-title">18 PIRANGUT | BUNGALOW PLOTS IN PIRANGUT PUNE<small>Hadpsar, Pune</small></h4>
-
-                        <p class="duration fourty-space">Plot size : 2700 — 5500 sq ft</p>
-                        <p class="duration fourty-space">Collector Sanctioned</p>
-                        <p class="duration fourty-space">Residential Plots with 4 side Wall </p>
-                        <p class="duration fourty-space">7-12 : Separate Extract for Each Plot</p>
-                        <div class="action">
-                            <a class="button btn-small full-width" routerLink="details/2">More Details</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <article class="box">
-                    <figure class="animated" data-animation-type="fadeInDown">
-                        <span><img alt="" src="http://placehold.it/270x160"></span>
-                    </figure>
-                    <div class="details">
-                        <h4 class="box-title">Paris<small>Oneway flight</small></h4>
-
-                        <p class="duration fourty-space">Plot size : 2700 — 5500 sq ft</p>
-                        <p class="duration fourty-space">Collector Sanctioned</p>
-                        <p class="duration fourty-space">Residential Plots with 4 side Wall </p>
-                        <p class="duration fourty-space">7-12 : Separate Extract for Each Plot</p>
-                        <div class="action">
-                            <a class="button btn-small full-width" routerLink="details/2">More Details</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
+           
 
         </div>
     </div>

@@ -22,6 +22,9 @@ export class HomeService {
   public getPropertyType() {
     return this.http.get(this.apiUrl+'property/propertyType');
   }
+  public getPropertyList() {
+    return this.http.get(this.apiUrl+'property/listFront');
+  }
   // Handle Errors
   error(error: HttpErrorResponse) {
     let errorMessage = '';
