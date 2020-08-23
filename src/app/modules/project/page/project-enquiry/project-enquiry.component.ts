@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ProjectService } from '../../project.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-enquiry',
@@ -7,31 +9,46 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./project-enquiry.component.css'],
 })
 export class ProjectEnquiryComponent implements OnInit {
-  enquiryForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required])
-  });
+  enquiryForm :FormGroup;
+  submitted =false;
+  formStatus =false;
+  pid = '';
+  constructor(private formBuilder: FormBuilder, 
+    private projectService: ProjectService,
+    private route: ActivatedRoute,) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.pid = this.route.snapshot.paramMap.get("id");
 
-  ngOnInit(): void { }
+    this.enquiryForm = this.formBuilder.group({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl('', [Validators.required]),
+      message: new FormControl('', [Validators.required]),
+      city: new FormControl('')
+    });
+  
+   }
+   // convenience getter for easy access to form fields
+   get enFrom() { return this.enquiryForm.controls; }
 
-  get name(): any {
-    return this.enquiryForm.get('name');
-  }
-  get email(): any {
-    return this.enquiryForm.get('email');
-  }
-  get phone(): any {
-    return this.enquiryForm.get('phone');
-  }
-  get address(): any {
-    return this.enquiryForm.get('address');
-  }
+ 
 
   onSubmit(): void {
-    console.log(this.enquiryForm.value);
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.enquiryForm.invalid) {
+       return;
+   }
+    let data = this.enquiryForm.value;
+    data["pid"] = this.pid ;
+    this.projectService.sendPostRequest(this.enquiryForm.value).subscribe(
+      res => {
+        if(res == 'success'){
+          this.submitted =true
+        }
+        console.log(res);
+      }
+    );
   }
 }

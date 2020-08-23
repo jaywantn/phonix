@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../../contact.service';
-
+import { Title, Meta } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -25,11 +25,21 @@ export class ContactComponent {
   };
   contactForm :FormGroup;
   submitted = false;
+  title = 'Contact US Phoenix land Developer';
   constructor(private contactService: ContactService,
-    private formBuilder: FormBuilder) {}
+    private formBuilder: FormBuilder,
+    private titleService: Title,
+    private meta: Meta) {}
   
 
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+  	this.meta.addTag({name: 'author', content: 'Phonix Lad Developers'});
+    this.meta.addTag({name: 'robots', content: 'index, follow'});
+    this.meta.updateTag({name: 'keywords', content: 'Contact Us Phonix Lad Developers'});
+    this.meta.updateTag({name: 'description', content: 'COntact Us Phonix Lad Developers'}, 'name="description"');
+
+
     this.phoneNumber = this.generalData[5]['description'];  
     this.contactForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),

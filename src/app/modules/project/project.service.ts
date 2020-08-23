@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ProjectService {
-  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/';
+  apiUrl: string = 'https://phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   
   constructor(private http: HttpClient) { }
@@ -21,6 +21,9 @@ export class ProjectService {
   public getPropertyType() {
     return this.http.get(this.apiUrl+'property/propertyType');
   }
+  sendPostRequest(data: any): Observable<any> {
+        return this.http.post<any>(this.apiUrl+'property/enquiry', data);
+    }
   // Handle Errors
   error(error: HttpErrorResponse) {
     let errorMessage = '';
