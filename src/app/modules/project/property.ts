@@ -49,7 +49,7 @@ seo_title: string;
 seq: any;
 site_map_address: null
 status:any;
-title: any;
+title ?: any;
 url_slug: any;
 you_tube_link: any;
 }

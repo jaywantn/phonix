@@ -6,24 +6,18 @@ import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectService {
+export class NewsService {
   apiUrl: string = 'http://phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-  
+
   constructor(private http: HttpClient) { }
 
-  public getPropertyList() {
-    return this.http.get(this.apiUrl+'property/listFront');
+  public getList() {
+    return this.http.get(this.apiUrl+'news/listF');
   }
-  public getPropertyDetails(pid) {
-    return this.http.get(this.apiUrl+'property/details/'+pid);
+  public getDetails(newsId) {
+    return this.http.get(this.apiUrl+'news/details/'+ newsId);
   }
-  public getPropertyType() {
-    return this.http.get(this.apiUrl+'property/propertyType');
-  }
-  sendPostRequest(data: any): Observable<any> {
-        return this.http.post<any>(this.apiUrl+'property/enquiry', data);
-    }
   // Handle Errors
   error(error: HttpErrorResponse) {
     let errorMessage = '';

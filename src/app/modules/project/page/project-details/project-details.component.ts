@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,7 +19,6 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
  // project$: Observable<Project>;
   projectDetails :any ;
   project : PropertyData;
-  @ViewChild('simpleDiv', { static: true }) simple;
 
   propertyAllImages : PropertyAllImages[] =[] ;
   sample:any ;
@@ -30,7 +30,6 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
   }
   ngAfterViewInit(){
    // this.simple.nativeElement.innerHTML =  '<p>Internal Roads - WBM</p>↵↵<p>Provision for Electricity</p>↵↵<p>Provision for Water</p> ';
-    this.decodeHTMLEntities();
   }
   getProjectDetails(pid): any {
     this.projectService.getPropertyDetails(pid).subscribe((data: any[]) => {
@@ -42,19 +41,10 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
       //   return item;
       // });
      console.log(data);
-     this.projectDetails = data;
-      this.propertyAllImages= this.projectDetails.propertyAllImages;
-     
-      // this.sample.push(this.projectDetails.propertyAllImages);
-      // this.sample.push(this.projectDetails.propertyData);
-      // console.log(this.sample);
+      this.projectDetails = data;
+      this.project = this.projectDetails.propertyData;
+      this.propertyAllImages= this.projectDetails.propertyAllImages;   
     });
     
-  }
-  decodeHTMLEntities() {
-    debugger;
-    // var textArea = document.createElement('textarea');
-    // textArea.innerHTML = text;
-    this.simple.nativeElement.innerHTML = this.projectDetails.propertyData.overview
   }
 }

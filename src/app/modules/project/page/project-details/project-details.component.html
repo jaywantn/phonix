@@ -1,7 +1,7 @@
 <div class="page-title-container">
-  <div class="container">
+  <div class="container" *ngIf="project">
     <div class="page-title pull-left">
-      <h2 class="entry-title">{{projectDetails.propertyData.title}}</h2>
+      <h2 class="entry-title">{{project.title}}</h2>
     </div>
     <ul class="breadcrumbs pull-right">
       <li><a routerLink="/home">HOME</a></li>
@@ -9,7 +9,7 @@
     </ul>
   </div>
 </div>
-<section id="content">
+<section id="content" *ngIf="project">
   <div class="container flight-detail-page">
     <div class="row">
       <div id="main" class="col-md-9">
@@ -50,15 +50,13 @@
             <div class="tab-pane fade in active" id="property-details">
               <div class="long-description">
                 <h2>About Project</h2>
-                <div [innerHtml]="projectDetails.propertyData.overview | safeHtml: 'html'"></div>
+                <div [innerHtml]="project.overview | safeHtml: 'html'"></div>
 
               </div>
             </div>
             <div class="tab-pane fade" id="property-features">
               <h2>Features </h2>
-              <div  [innerHtml]="projectDetails.propertyData.overview | safeHtml: 'html'"></div>
-              <div #simpleDiv></div>
-              
+              <div  [innerHtml]="project.features | safeHtml: 'html'"></div>
               
             </div>
             <div class="tab-pane fade" id="property-document">
@@ -94,22 +92,22 @@
       <div class="sidebar col-md-3">
         <article class="detailed-logo">
           <figure>
-            <img src="https://www.phoenixdeveloper.in/backend/upload/property/{{projectDetails.propertyData.img}}" alt="" />
+            <img src="https://www.phoenixdeveloper.in/backend/upload/property/{{project.img}}" alt="" />
           </figure>
           <div class="details">
             <h2 class="box-title">
-              {{projectDetails.propertyData.title}}
+              {{project.title}}
             </h2>
             <span class="price clearfix">
               <small class="pull-left">Per Square</small>
               <span class="pull-right">140/-</span>
             </span>
 
-            <p class="description" [innerHtml]="projectDetails.propertyData.intro | safeHtml: 'html'">
+            <p class="description" [innerHtml]="project.intro | safeHtml: 'html'">
       
             </p>
             <a
-              routerLink="/project/enquiry/1"
+              routerLink="/project/enquiry/{{projectDetails.propertyData.pid}}"
               class="button green full-width uppercase btn-medium"
               >Enquiry Now</a
             >
@@ -126,7 +124,7 @@
               ><i class="soap-icon-phone"></i> 1-800-123-HELLO</span
             >
             <br />
-            <a class="contact-email" href="#">help@phoenixdeveloper.in</a>
+            <a class="contact-email" href="mailto:help@phoenixdeveloper.in?subject=Property Enquiry">help@phoenixdeveloper.in</a>
           </address>
         </div>
         <div class="travelo-box book-with-us-box">
@@ -134,18 +132,18 @@
           <ul>
             <li>
               <i class="soap-icon-hotel-1 circle"></i>
-              <h5 class="title"><a href="#">135,00+ Property</a></h5>
-              <p>Nunc cursus libero pur congue arut nimspnty.</p>
+              <h5 class="title"><a >5,00+ Property</a></h5>
+              <p> 5000+ verified properties & still counting. Maximum options for Buyers to search New Homes.</p>
             </li>
             <li>
               <i class="soap-icon-savings circle"></i>
-              <h5 class="title"><a href="#">Low Rates &amp; Savings</a></h5>
-              <p>Nunc cursus libero pur congue arut nimspnty.</p>
+              <h5 class="title"><a >High Visibility</a></h5>
+              <p>More than 40,000+ views for Homes Or Properties.</p>
             </li>
             <li>
               <i class="soap-icon-support circle"></i>
-              <h5 class="title"><a href="#">Excellent Support</a></h5>
-              <p>Nunc cursus libero pur congue arut nimspnty.</p>
+              <h5 class="title"><a >Excellent Support</a></h5>
+              <p> Get in touch with Sellers within NO TIME. Buyers stay away from fake Dealers.</p>
             </li>
           </ul>
         </div>
