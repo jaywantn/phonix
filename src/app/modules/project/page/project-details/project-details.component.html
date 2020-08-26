@@ -42,9 +42,8 @@
             <li>
               <a href="#layout" data-toggle="tab">Layout</a>
             </li>
-            <li>
-              <a href="#video" data-toggle="tab">Video</a>
-            </li>
+            <li> <a href="#googleMap" data-toggle="tab">Google Map</a></li>
+            <li> <a href="#video" data-toggle="tab">Video</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane fade in active" id="property-details">
@@ -82,6 +81,16 @@
               <hr />
               
             </div>
+            <div class="tab-pane fade" id="googleMap">
+              <h2>Map</h2>
+              <google-map
+              height="300px"
+              width="100%"
+              [zoom]="zoom"
+              [center]="center"
+              [options]="options"
+            ></google-map>
+            </div>
             <div class="tab-pane fade" id="video">
               <h2>Video</h2>
               <iframe width="560" height="315" src="https://www.youtube.com/embed/li73hE4AtRc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -109,7 +118,7 @@
             <a
               routerLink="/project/enquiry/{{projectDetails.propertyData.pid}}"
               class="button green full-width uppercase btn-medium"
-              >Enquiry Now</a
+              >Inquiry Now</a
             >
           </div>
         </article>

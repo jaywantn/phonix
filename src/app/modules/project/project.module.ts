@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {ProjectService} from './project.service';
 import { SafeHtmlPipe } from '../../core/safeHtml.pipe';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { GoogleMapsModule } from '@angular/google-maps';
 @NgModule({
   declarations: [
     ProjectComponent,
@@ -15,7 +16,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ProjectEnquiryComponent,
     SafeHtmlPipe
   ],
-  imports: [CommonModule, ProjectRoutingModule, ReactiveFormsModule, CarouselModule],
+  imports: [CommonModule, ProjectRoutingModule, ReactiveFormsModule, CarouselModule, GoogleMapsModule],
   providers :[ProjectService]
 })
 export class ProjectModule {}

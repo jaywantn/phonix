@@ -96,7 +96,7 @@
                   formControlName="name"
                   [ngClass]="{ 'is-invalid': submitted && f.name.errors }" 
                 />
-                <div *ngIf="f.name.touched && f.name.invalid" class="error">
+                <div *ngIf="f.name.touched && f.name.invalid && submitted" class="error">
                   <div *ngIf="f.name.errors.required">Name is required</div>
                 </div>
                 <div *ngIf="submitted && f.name.errors" class="error">
@@ -113,7 +113,7 @@
                     class="input-text full-width"
                     formControlName="email"
                   />
-                  <div *ngIf="f.email.touched && f.email.invalid" class="error">
+                  <div *ngIf="f.email.touched && f.email.invalid && submitted" class="error">
                     <div *ngIf="f.email.errors.required">Email is required</div>
                     <div *ngIf="f.email.errors.email">
                       Please enter valid email
@@ -131,7 +131,7 @@
                     class="input-text full-width"
                     formControlName="mobile_no"
                   />
-                  <div *ngIf="f.mobile_no.touched && f.mobile_no.invalid" class="error">
+                  <div *ngIf="f.mobile_no.touched && f.mobile_no.invalid && submitted" class="error">
                     <div *ngIf="f.mobile_no.errors.required">Mobile No is required</div>
                   </div>
                   <div *ngIf="submitted && f.mobile_no.errors" class="error">
@@ -165,7 +165,7 @@
                   placeholder="Write message here"
                   formControlName="message"
                 ></textarea>
-                <div *ngIf="f.message.touched && f.message.invalid" class="error">
+                <div *ngIf="submitted &&  f.message.touched && f.message.invalid" class="error">
                   <div *ngIf="f.message.errors.required">Message is required</div>
                 </div>
                 <div *ngIf="submitted && f.message.errors" class="error">

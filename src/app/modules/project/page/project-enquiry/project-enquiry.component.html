@@ -14,7 +14,7 @@
   <div class="container">
     <div class="row">
       <div id="main" class="col-sms-6 col-sm-8 col-md-9">
-        <div class="booking-section travelo-box">
+        <div class="booking-section travelo-box" *ngIf="!formStatus">
           <form
             class="booking-form"
             method="post"
@@ -124,12 +124,27 @@
                   class="full-width btn-large"
                   [disabled]="enquiryForm.invalid"
                 >
-                  Save Enquiry
+                  Save Inquiry
                 </button>
               </div>
             </div>
           </form>
         </div>
+
+        <!-- thank you message -->
+        <div class="booking-information travelo-box" *ngIf="formStatus">
+          <h2>Inquiry Confirmation</h2>
+          
+          <hr />
+          <dl class="term-description">
+              <dt>Full name:</dt><dd>{{enquiryForm.value.name}}</dd>
+              <dt>E-mail address:</dt><dd>{{enquiryForm.value.email}}</dd>
+              <dt>Mobile number:</dt><dd>{{enquiryForm.value.phone}}</dd>
+              <dt>Message:</dt><dd>{{enquiryForm.value.message}}</dd>
+          </dl>
+          <hr />
+      </div>
+  
       </div>
       <div class="sidebar col-sms-6 col-sm-4 col-md-3">
         <div class="travelo-box contact-box">

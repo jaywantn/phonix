@@ -69,12 +69,13 @@ export class ContactComponent {
     this.contactService.sendPostRequest(this.contactForm.value).subscribe(
       res => {
         if(res == 'success'){
+          this.submitted = false;
           this.formStatus =true
         }
         console.log(res);
       }
     );
-    this.contactForm.reset();
+   this.contactForm.reset();
   }
 
   getDetails() {

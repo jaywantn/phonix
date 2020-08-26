@@ -19,12 +19,29 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
  // project$: Observable<Project>;
   projectDetails :any ;
   project : PropertyData;
-
+  // google map parameter
+  zoom = 12;
+  center: google.maps.LatLngLiteral;
+  generalData = JSON.parse(sessionStorage.getItem('generalDetails'));
+  options: google.maps.MapOptions = {
+    mapTypeId: 'hybrid',
+    zoomControl: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    maxZoom: 15,
+    minZoom: 8,
+  };
   propertyAllImages : PropertyAllImages[] =[] ;
   sample:any ;
   constructor(private route: ActivatedRoute, private projectService: ProjectService ) {}
   
   ngOnInit(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: 18.5204,
+        lng: 73.8567,
+      };
+    });
   // let pid= this.route.snapshot.paramMap.get("id");
    this.getProjectDetails(this.route.snapshot.paramMap.get("id"));
   }
@@ -46,5 +63,13 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
       this.propertyAllImages= this.projectDetails.propertyAllImages;   
     });
     
+  }
+
+  zoomIn() {
+    if (this.zoom < this.options.maxZoom) this.zoom++;
+  }
+
+  zoomOut() {
+    if (this.zoom > this.options.minZoom) this.zoom--;
   }
 }

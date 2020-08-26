@@ -35,7 +35,9 @@ export class ProjectEnquiryComponent implements OnInit {
  
 
   onSubmit(): void {
+    //console.log();
     this.submitted = true;
+    this.formStatus = true;
     // stop here if form is invalid
     if (this.enquiryForm.invalid) {
        return;
@@ -45,9 +47,10 @@ export class ProjectEnquiryComponent implements OnInit {
     this.projectService.sendPostRequest(data).subscribe(
       res => {
         if(res == 'success'){
-          this.submitted =true
+          this.submitted =true;
+          this.formStatus = true;
         }
-        console.log(res);
+        console.log("response form",res);
       }
     );
   }
