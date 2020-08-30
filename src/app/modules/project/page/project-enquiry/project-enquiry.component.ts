@@ -46,7 +46,7 @@ export class ProjectEnquiryComponent implements OnInit {
     data["pid"] = this.pid ;
     this.projectService.sendPostRequest(data).subscribe(
       res => {
-        if(res == 'success'){
+        if(res === 'success'){
           this.submitted =true;
           this.formStatus = true;
         }
