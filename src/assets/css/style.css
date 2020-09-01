@@ -10987,7 +10987,7 @@ button.ui-button::-moz-focus-inner {
   background: #fff;
 }
 #footer.style1 .logo a {
-  background-image: url("../images/logo/skin2-logo.png");
+  /* background-image: url("../images/logo/skin2-logo.png"); */
 }
 #footer.style1 .copyright p {
   color: #9e9e9e;
@@ -11118,9 +11118,7 @@ button.ui-button::-moz-focus-inner {
 #footer.style3 .bottom {
   background: #fff;
 }
-#footer.style3 .logo a {
-  background-image: url("../images/logo/skin3-logo.png");
-}
+
 #footer.style3 .copyright p {
   color: #9e9e9e;
 }

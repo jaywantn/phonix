@@ -25,7 +25,6 @@ export class ContactComponent {
   };
   contactForm :FormGroup;
   submitted = false;
-  title = 'Contact US Phoenix land Developer';
   constructor(private contactService: ContactService,
     private formBuilder: FormBuilder,
     private titleService: Title,
@@ -33,12 +32,8 @@ export class ContactComponent {
   
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
-  	this.meta.addTag({name: 'author', content: 'Phonix Lad Developers'});
+    this.meta.addTag({name: 'author', content: 'Phonix Lad Developers'});
     this.meta.addTag({name: 'robots', content: 'index, follow'});
-    this.meta.updateTag({name: 'keywords', content: 'Contact Us Phonix Lad Developers'});
-    this.meta.updateTag({name: 'description', content: 'COntact Us Phonix Lad Developers'}, 'name="description"');
-
 
     this.phoneNumber = this.generalData[5]['description'];  
     this.contactForm = this.formBuilder.group({
@@ -82,6 +77,7 @@ export class ContactComponent {
     this.contactService.getBanner().subscribe((data: any) => {
       this.details = data;
       console.log(this.details);
+      this.seoGenerate();
     });
   }
   zoomIn() {
@@ -90,5 +86,10 @@ export class ContactComponent {
 
   zoomOut() {
     if (this.zoom > this.options.minZoom) this.zoom--;
+  }
+  seoGenerate(){
+    this.titleService.setTitle(this.details.seo_title);
+    this.meta.updateTag({name: 'keywords', content: this.details.seo_keyword});
+    this.meta.updateTag({name: 'description', content: this.details.seo_description}, 'name="description"');
   }
 }
