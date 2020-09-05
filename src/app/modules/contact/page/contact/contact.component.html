@@ -1,146 +1,106 @@
 <div class="page-title-container">
-  <div class="container">
-    <div class="page-title pull-left">
-      <h2 class="entry-title">Contact Us</h2>
+    <div class="container">
+        <div class="page-title pull-left">
+            <h2 class="entry-title">Contact Us</h2>
+        </div>
+        <ul class="breadcrumbs pull-right">
+            <li><a routerLink="/home">HOME</a></li>
+            <li class="active">Contact Us</li>
+        </ul>
     </div>
-    <ul class="breadcrumbs pull-right">
-      <li><a routerLink="/home">HOME</a></li>
-      <li class="active">Contact Us</li>
-    </ul>
-  </div>
 </div>
 
 <section id="content">
-  <div class="container">
-    <div id="main">
-      <div class="travelo-google-map block">
-        <google-map
-          height="300px"
-          width="100%"
-          [zoom]="zoom"
-          [center]="center"
-          [options]="options"
-        ></google-map>
-      </div>
-      <div class="clearfix"></div>
-      <br />
-      <div class="row">
-        <div class="col-sm-4 col-md-3">
-          <div class="travelo-box contact-us-box">
-            <h4>Contact us</h4>
-            <ul class="contact-address">
-              <li class="address">
-                <i class="soap-icon-address circle"></i>
-                <h5 class="title">Address</h5>
-                <p>Karishma Society.</p>
-                <p>Kothrud Pune, India.</p>
-              </li>
-              <li class="phone">
-                <i class="soap-icon-phone circle"></i>
-                <h5 class="title">Phone</h5> 
-                <p>Mobile: {{phoneNumber}}</p>
-              </li>
-              <li class="email">
-                <i class="soap-icon-message circle"></i>
-                <h5 class="title">Email</h5>
-                <p>info@phoenixdeveloper.in</p>
-                <p>www.phoenixdeveloper.in</p>
-              </li>
-            </ul>
-            <ul class="social-icons full-width">
-              <li>
-                <a href="#" data-toggle="tooltip" title="Twitter"
-                  ><i class="soap-icon-twitter"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" data-toggle="tooltip" title="GooglePlus"
-                  ><i class="soap-icon-googleplus"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" data-toggle="tooltip" title="Facebook"
-                  ><i class="soap-icon-facebook"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" data-toggle="tooltip" title="Linkedin"
-                  ><i class="soap-icon-linkedin"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" data-toggle="tooltip" title="Vimeo"
-                  ><i class="soap-icon-vimeo"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-8 col-md-9">
-          <div class="travelo-box">
-            <div class="alert small-box alert-success" *ngIf="formStatus">Your Details are saved. Thanks for Contacting Us.</div>
-            <form
-              class="contact-form"
-              method="post"
-              [formGroup]="contactForm"
-              (ngSubmit)="onSubmit()"
-            >
-              <h4 class="box-title">Send us a Message</h4>
-              <div class="alert small-box" style="display: none;"></div>
-              <div class="form-group">
-                <label>Your Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  class="input-text full-width"
-                  formControlName="name"
-                  [ngClass]="{ 'is-invalid': submitted && f.name.errors }" 
-                />
-                <div *ngIf="f.name.touched && f.name.invalid && submitted" class="error">
-                  <div *ngIf="f.name.errors.required">Name is required</div>
-                </div>
-                <div *ngIf="submitted && f.name.errors" class="error">
-                    <div *ngIf="f.name.errors.required && !f.name.touched">Full Name is required</div>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-xs-6">
-                  <label>Your Email ID *</label>
-                  <input
-                    type="text"
-                    name="email"
-                    class="input-text full-width"
-                    formControlName="email"
-                  />
-                  <div *ngIf="f.email.touched && f.email.invalid && submitted" class="error">
-                    <div *ngIf="f.email.errors.required">Email is required</div>
-                    <div *ngIf="f.email.errors.email">
-                      Please enter valid email
+    <div class="container">
+        <div id="main">
+            <div class="travelo-google-map block">
+                <google-map height="300px" width="100%" [zoom]="zoom" [center]="center" [options]="options"></google-map>
+            </div>
+            <div class="clearfix"></div>
+            <br />
+            <div class="row">
+                <div class="col-sm-4 col-md-3">
+                    <div class="travelo-box contact-us-box">
+                        <h4>Contact us</h4>
+                        <ul class="contact-address">
+                            <li class="address">
+                                <i class="soap-icon-address circle"></i>
+                                <h5 class="title">Address</h5>
+                                <p>Karishma Society.</p>
+                                <p>Kothrud Pune, India.</p>
+                            </li>
+                            <li class="phone" *ngIf="phoneNumber">
+                                <i class="soap-icon-phone circle"></i>
+                                <h5 class="title">Contact No:</h5>
+                                <p>Mobile: {{phoneNumber}}</p>
+                            </li>
+                            <li class="email">
+                                <i class="soap-icon-message circle"></i>
+                                <h5 class="title">Email:</h5>
+                                <p>info@phoenixdeveloper.in</p>
+                                <p>www.phoenixdeveloper.in</p>
+                            </li>
+                        </ul>
+                        <ul class="social-icons full-width">
+                            <li class="twitter">
+                                <a href="#" data-toggle="tooltip" title="Twitter"><i class="soap-icon-twitter"></i></a>
+                            </li>
+                            <li class="googleplus">
+                                <a href="#" data-toggle="tooltip" title="GooglePlus"><i class="soap-icon-googleplus"></i></a>
+                            </li>
+                            <li class="facebook">
+                                <a href="#" data-toggle="tooltip" title="Facebook"><i class="soap-icon-facebook"></i></a>
+                            </li>
+                            <li class="linkedin">
+                                <a href="#" data-toggle="tooltip" title="Linkedin"><i class="soap-icon-linkedin"></i></a>
+                            </li>
+                        </ul>
                     </div>
-                  </div>
-                  <div *ngIf="submitted && f.email.errors" class="error">
-                    <div *ngIf="f.email.errors.required && !f.email.touched">Email is required</div>
                 </div>
-                </div>
-                <div class="col-xs-6">
-                  <label>Mobile No *</label>
-                  <input
-                    type="text"
-                    name="mobile_no"
-                    class="input-text full-width"
-                    formControlName="mobile_no"
-                  />
-                  <div *ngIf="f.mobile_no.touched && f.mobile_no.invalid && submitted" class="error">
-                    <div *ngIf="f.mobile_no.errors.required">Mobile No is required</div>
-                  </div>
-                  <div *ngIf="submitted && f.mobile_no.errors" class="error">
-                    <div *ngIf="f.mobile_no.errors.required && !f.mobile_no.touched">Mobile No is required</div>
-                </div>
-                </div>
-              </div>
+                <div class="col-sm-8 col-md-9">
+                    <div class="travelo-box">
+                        <div class="alert small-box alert-success" *ngIf="formStatus">Your Details are saved. Thanks for Contacting Us.</div>
+                        <form class="contact-form" method="post" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                            <h4 class="box-title">Send us a Message</h4>
+                            <div class="alert small-box" style="display: none;"></div>
+                            <div class="form-group">
+                                <label>Your Name *</label>
+                                <input type="text" name="name" class="input-text full-width" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                <div *ngIf="f.name.touched && f.name.invalid && submitted" class="error">
+                                    <div *ngIf="f.name.errors.required">Name is required</div>
+                                </div>
+                                <div *ngIf="submitted && f.name.errors" class="error">
+                                    <div *ngIf="f.name.errors.required && !f.name.touched">Full Name is required</div>
+                                </div>
+                            </div>
 
-              <!-- <div class="form-group">
+                            <div class="row form-group">
+                                <div class="col-xs-6">
+                                    <label>Your Email ID *</label>
+                                    <input type="text" name="email" class="input-text full-width" formControlName="email" />
+                                    <div *ngIf="f.email.touched && f.email.invalid && submitted" class="error">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">
+                                            Please enter valid email
+                                        </div>
+                                    </div>
+                                    <div *ngIf="submitted && f.email.errors" class="error">
+                                        <div *ngIf="f.email.errors.required && !f.email.touched">Email is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>Mobile No *</label>
+                                    <input type="text" name="mobile_no" class="input-text full-width" formControlName="mobile_no" />
+                                    <div *ngIf="f.mobile_no.touched && f.mobile_no.invalid && submitted" class="error">
+                                        <div *ngIf="f.mobile_no.errors.required">Mobile No is required</div>
+                                    </div>
+                                    <div *ngIf="submitted && f.mobile_no.errors" class="error">
+                                        <div *ngIf="f.mobile_no.errors.required && !f.mobile_no.touched">Mobile No is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group">
                 <label>Address </label>
                 <input
                   type="text"
@@ -153,36 +113,26 @@
                 </div>
                 <div *ngIf="submitted && f.address.errors" class="error">
                     <div *ngIf="f.address.errors.required && !f.address.touched">Address is required</div>
-                </div> 
+                </div>
               </div>-->
 
-              <div class="form-group">
-                <label>Your Message *</label>
-                <textarea
-                  name="message"
-                  rows="6"
-                  class="input-text full-width"
-                  placeholder="Write message here"
-                  formControlName="message"
-                ></textarea>
-                <div *ngIf="submitted &&  f.message.touched && f.message.invalid" class="error">
-                  <div *ngIf="f.message.errors.required">Message is required</div>
-                </div>
-                <div *ngIf="submitted && f.message.errors" class="error">
-                    <div *ngIf="f.message.errors.required && !f.message.touched">Message is required</div>
-                </div>
-              </div>
-              <button
-              
-                class="btn-large full-width"
-                class="error"
-              >
+                            <div class="form-group">
+                                <label>Your Message *</label>
+                                <textarea name="message" rows="6" class="input-text full-width" placeholder="Write message here" formControlName="message"></textarea>
+                                <div *ngIf="submitted &&  f.message.touched && f.message.invalid" class="error">
+                                    <div *ngIf="f.message.errors.required">Message is required</div>
+                                </div>
+                                <div *ngIf="submitted && f.message.errors" class="error">
+                                    <div *ngIf="f.message.errors.required && !f.message.touched">Message is required</div>
+                                </div>
+                            </div>
+                            <button class="btn-large full-width" class="error">
                 SEND MESSAGE
               </button>
-            </form>
-          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

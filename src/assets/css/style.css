@@ -16176,3 +16176,19 @@ textarea:focus,
     border: 1px solid #b96503;
     box-shadow: 0 0 8px rgba(1, 183, 242, 0.6);
 }
+
+.social-icons li.twitter a {
+    background: #e80000;
+}
+
+.social-icons li.googleplus a {
+    background: #db4437;
+}
+
+.social-icons li.facebook a {
+    background: #1877f2;
+}
+
+.social-icons li.linkedin a {
+    background: #007bb5
+}
