@@ -1,11 +1,13 @@
-#footer .footer-wrapper{
+#footer .footer-wrapper {
     padding: 24px 0;
-    background: #2d3e52;
+    background: #353535;
     color: #fff;
 }
-#footer h2{ 
+
+#footer h2 {
     color: #fff;
 }
-.contact-details .contact-phone{
+
+.contact-details .contact-phone {
     color: #fff;
 }

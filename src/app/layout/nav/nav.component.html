@@ -1,79 +1,75 @@
 <header id="header" class="navbar-static-top">
-  <div class="topnav hidden-xs">
-    <div class="container">
-      <ul class="quick-menu pull-left">
-        <li>
-          <a >Call On<strong> {{phoneNumber}} </strong></a>
-        </li>
-      </ul>
-      <ul class="quick-menu pull-right">
-        <li><a  class="soap-popupbox">LOGIN</a></li>
-        <li><a class="soap-popupbox">SIGNUP</a></li>
-      </ul>
+    <div class="topnav hidden-xs">
+        <div class="container">
+            <ul class="quick-menu pull-left">
+                <li>
+                    <a>Call On<strong> {{phoneNumber}} </strong></a>
+                </li>
+            </ul>
+            <ul class="quick-menu pull-right">
+                <li><a class="soap-popupbox">LOGIN</a></li>
+                <li><a class="soap-popupbox">SIGNUP</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <div class="main-header">
-    <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle">
+    <div class="main-header">
+        <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle">
       Mobile Menu Toggle
     </a>
 
-    <div class="container">
-      <h1 class="logo navbar-brand">
-        <a routerLink="home" title="Phonix Developer - home">
-          <img
-            src="assets/images/logo.png"
-            alt="Phonix Developer"
-            width="100px"
-          />
-        </a>
-      </h1>
+        <div class="container">
+            <h1 class="logo navbar-brand">
+                <a routerLink="home" title="Phonix Developer - home">
+                    <img src="assets/images/logo.png" alt="Phonix Developer" />
+                </a>
+            </h1>
 
-      <nav id="main-menu" role="navigation">
-        <ul class="menu">
-          <li class="menu-item-has-children">
-            <a routerLink="home" routerLinkActive="active">Home</a>
-          </li>
-          <li class="menu-item-has-children">
-            <a routerLink="project">Project</a>
-          </li>
-          <li class="menu-item-has-children">
-            <a routerLink="about">About</a>
-          </li>
-          <li class="menu-item-has-children">
-                    <a  routerLink="news">News</a>
-          </li>
-          <li class="menu-item-has-children">
-            <a routerLink="contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+            <nav id="main-menu" role="navigation">
+                <ul class="menu">
+                    <li class="menu-item-has-children">
+                        <a routerLink="home" routerLinkActive="active">Home</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a routerLink="project">Project</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a routerLink="about">About</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a routerLink="news">News</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a routerLink="contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav id="mobile-menu-01" class="mobile-menu collapse">
+            <ul id="mobile-primary-menu" class="menu">
+                <li class="menu-item-has-children">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="menu-item-has-children">
+                    <a routerLink="project">Project</a>
+                </li>
+                <li class="menu-item-has-children">
+                    <a routerLink="about">About</a>
+                </li>
+                <li class="menu-item-has-children">
+                    <a routerLink="news">News</a>
+                </li>
+                <li class="menu-item-has-children">
+                    <a routerLink="about">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="mobile-topnav container">
+                <li><a> {{phoneNumber}}</a></li>
+                <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
+                <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li>
+            </ul>
+        </nav>
     </div>
-
-    <nav id="mobile-menu-01" class="mobile-menu collapse">
-      <ul id="mobile-primary-menu" class="menu">
-        <li class="menu-item-has-children">
-          <a href="index.html">Home</a>
-        </li>
-        <li class="menu-item-has-children">
-          <a routerLink="project">Project</a>
-        </li>
-        <li class="menu-item-has-children">
-          <a routerLink="about">About</a>
-        </li> 
-        <li class="menu-item-has-children">
-          <a routerLink="news">News</a>
-        </li>
-        <li class="menu-item-has-children">
-          <a routerLink="about">Contact</a>
-        </li>
-      </ul>
-
-      <ul class="mobile-topnav container">
-        <li><a  > {{phoneNumber}}</a></li>
-        <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
-        <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li>
-      </ul>
-    </nav>
-  </div>
 </header>
