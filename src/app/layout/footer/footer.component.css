@@ -6,6 +6,9 @@
 
 #footer h2 {
     color: #fff;
+    font-weight: 100;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
 }
 
 .contact-details .contact-phone {

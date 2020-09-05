@@ -1,7 +1,11 @@
-#header .logo img, #footer .logo img, .chaser .logo img{
+#header .logo img,
+#footer .logo img,
+.chaser .logo img {
     opacity: 1;
 }
-#main-menu ul.menu > li > a, .chaser ul.menu > li > a{
+
+#main-menu ul.menu>li>a,
+.chaser ul.menu>li>a {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 400;
 }
