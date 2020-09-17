@@ -7871,7 +7871,7 @@ body.is-mobile .animated {
 #header .logo {
     padding: 0;
     text-align: left;
-    margin: 10px 0 10px 0;
+    margin: 19px 0;
     height: auto;
 }
 
@@ -8567,7 +8567,7 @@ body.is-mobile .animated {
     padding: 0;
     height: 85px;
     line-height: 85px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 0.04em;
 }
 

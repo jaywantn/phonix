@@ -50,9 +50,9 @@ export class HomeBannerComponent implements OnInit {
     });
   }
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.openModal(this.modalTemplate);
-    }, 2000);
+    // setTimeout(() => {
+    //   this.openModal(this.modalTemplate);
+    // }, 2000);
   }
 
   get f() {
@@ -68,6 +68,7 @@ export class HomeBannerComponent implements OnInit {
         return item;
       });
       this.banner = data;
+      console.log("banner", this.banner);
     });
   }
   openModal(template: TemplateRef<any>) {

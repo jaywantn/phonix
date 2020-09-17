@@ -13,13 +13,8 @@
 <section id="content">
     <div class="container">
         <div id="main">
-            <div class="travelo-google-map block">
-                <google-map height="300px" width="100%" [zoom]="zoom" [center]="center" [options]="options"></google-map>
-            </div>
-            <div class="clearfix"></div>
-            <br />
             <div class="row">
-                <div class="col-sm-4 col-md-3">
+                <div class="col-sm-12 col-md-4">
                     <div class="travelo-box contact-us-box">
                         <h4>Contact us</h4>
                         <ul class="contact-address">
@@ -57,9 +52,10 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-8 col-md-9">
+                <div class="col-sm-12 col-md-8">
                     <div class="travelo-box">
-                        <div class="alert small-box alert-success" *ngIf="formStatus">Your Details are saved. Thanks for Contacting Us.</div>
+                        <div class="alert small-box alert-success" *ngIf="formStatus">Your Details are saved. Thanks for Contacting Us.
+                        </div>
                         <form class="contact-form" method="post" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                             <h4 class="box-title">Send us a Message</h4>
                             <div class="alert small-box" style="display: none;"></div>
@@ -118,7 +114,7 @@
 
                             <div class="form-group">
                                 <label>Your Message *</label>
-                                <textarea name="message" rows="6" class="input-text full-width" placeholder="Write message here" formControlName="message"></textarea>
+                                <textarea name="message" rows="3" class="input-text full-width" placeholder="Write message here" formControlName="message"></textarea>
                                 <div *ngIf="submitted &&  f.message.touched && f.message.invalid" class="error">
                                     <div *ngIf="f.message.errors.required">Message is required</div>
                                 </div>
@@ -133,6 +129,12 @@
                     </div>
                 </div>
             </div>
+            <div class="clearfix"></div>
+            <br />
+            <div class="travelo-google-map block">
+                <google-map height="300px" width="100%" [zoom]="zoom" [center]="center" [options]="options"></google-map>
+            </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </section>

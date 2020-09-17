@@ -4,8 +4,9 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './page/product/pages.component';
 import { TermConditionComponent } from './page/term-condition/term-condition.component';
 import {PagesService} from './pages.service';
+import { GalleryComponent } from './page/gallery/gallery.component';
 @NgModule({
-  declarations: [PagesComponent, TermConditionComponent],
+  declarations: [PagesComponent, TermConditionComponent, GalleryComponent],
   imports: [
     PagesRoutingModule
   ],

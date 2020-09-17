@@ -1,102 +1,73 @@
 <carousel>
     <slide *ngFor="let post of banner; let i = index;">
-        <img src="{{post.banner_image}}" alt="first slide" style="display: block; width: 100%; max-height: 500px;">
+        <a href="{{post.banner_link}}">
+            <img src="{{post.banner_image}}" alt="first slide" style="display: block; width: 100%; max-height: 700px;">
+        </a>
     </slide>
 </carousel>
 
-<ng-template #template >
-    <div class="modal-header" >
-      <h4 class="modal-title pull-left">Share your Details. We will contact you</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Share your Details. We will contact you</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
         <div class="travelo-box">
-            <form
-              class="contact-form"
-              method="post"
-              [formGroup]="contactForm"
-              (ngSubmit)="onSubmit()"
-            >
-              <div class="alert small-box" style="display: none;"></div>
-              <div class="form-group">
-                <label>Your Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  class="input-text full-width"
-                  formControlName="name"
-                  [ngClass]="{ 'is-invalid': submitted && f.name.errors }" 
-                />
-                <div *ngIf="f.name.touched && f.name.invalid" class="error">
-                  <div *ngIf="f.name.errors.required">Name is required</div>
-                </div>
-                <div *ngIf="submitted && f.name.errors" class="error">
-                    <div *ngIf="f.name.errors.required && !f.name.touched">Full Name is required</div>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-xs-6">
-                  <label>Your Email ID *</label>
-                  <input
-                    type="text"
-                    name="email"
-                    class="input-text full-width"
-                    formControlName="email"
-                  />
-                  <div *ngIf="f.email.touched && f.email.invalid" class="error">
-                    <div *ngIf="f.email.errors.required">Email is required</div>
-                    <div *ngIf="f.email.errors.email">
-                      Please enter valid email
+            <form class="contact-form" method="post" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="alert small-box" style="display: none;"></div>
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" name="name" class="input-text full-width" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="f.name.touched && f.name.invalid" class="error">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
                     </div>
-                  </div>
-                  <div *ngIf="submitted && f.email.errors" class="error">
-                    <div *ngIf="f.email.errors.required && !f.email.touched">Email is required</div>
+                    <div *ngIf="submitted && f.name.errors" class="error">
+                        <div *ngIf="f.name.errors.required && !f.name.touched">Full Name is required</div>
+                    </div>
                 </div>
-                </div>
-                <div class="col-xs-6">
-                  <label>Mobile No *</label>
-                  <input
-                    type="text"
-                    name="mobile_no"
-                    class="input-text full-width"
-                    formControlName="mobile_no"
-                  />
-                  <div *ngIf="f.mobile_no.touched && f.mobile_no.invalid" class="error">
-                    <div *ngIf="f.mobile_no.errors.required">Mobile No is required</div>
-                  </div>
-                  <div *ngIf="submitted && f.mobile_no.errors" class="error">
-                    <div *ngIf="f.mobile_no.errors.required && !f.mobile_no.touched">Mobile No is required</div>
-                </div>
-                </div>
-            </div>
 
-              <div class="form-group">
-                <label>Your Message *</label>
-                <textarea
-                  name="message"
-                  rows="6"
-                  class="input-text full-width"
-                  placeholder="Write message here"
-                  formControlName="message"
-                ></textarea>
-                <div *ngIf="f.message.touched && f.message.invalid" class="error">
-                  <div *ngIf="f.message.errors.required">Message is required</div>
+                <div class="row form-group">
+                    <div class="col-xs-6">
+                        <label>Your Email ID *</label>
+                        <input type="text" name="email" class="input-text full-width" formControlName="email" />
+                        <div *ngIf="f.email.touched && f.email.invalid" class="error">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">
+                                Please enter valid email
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && f.email.errors" class="error">
+                            <div *ngIf="f.email.errors.required && !f.email.touched">Email is required</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <label>Mobile No *</label>
+                        <input type="text" name="mobile_no" class="input-text full-width" formControlName="mobile_no" />
+                        <div *ngIf="f.mobile_no.touched && f.mobile_no.invalid" class="error">
+                            <div *ngIf="f.mobile_no.errors.required">Mobile No is required</div>
+                        </div>
+                        <div *ngIf="submitted && f.mobile_no.errors" class="error">
+                            <div *ngIf="f.mobile_no.errors.required && !f.mobile_no.touched">Mobile No is required</div>
+                        </div>
+                    </div>
                 </div>
-                <div *ngIf="submitted && f.message.errors" class="error">
-                    <div *ngIf="f.message.errors.required && !f.message.touched">Message is required</div>
+
+                <div class="form-group">
+                    <label>Your Message *</label>
+                    <textarea name="message" rows="6" class="input-text full-width" placeholder="Write message here" formControlName="message"></textarea>
+                    <div *ngIf="f.message.touched && f.message.invalid" class="error">
+                        <div *ngIf="f.message.errors.required">Message is required</div>
+                    </div>
+                    <div *ngIf="submitted && f.message.errors" class="error">
+                        <div *ngIf="f.message.errors.required && !f.message.touched">Message is required</div>
+                    </div>
                 </div>
-              </div>
-              <button
-              
-                class="btn-large full-width"
-                class="error"
-              >
+                <button class="btn-large full-width" class="error">
                 SEND MESSAGE
               </button>
             </form>
-          </div>
+        </div>
     </div>
-  </ng-template>
+</ng-template>
