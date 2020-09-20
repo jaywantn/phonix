@@ -6,7 +6,7 @@ import { HttpErrorResponse, HttpClient, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class ConfigService {
-  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/';
+  apiUrl: string = 'https://phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
