@@ -8,6 +8,7 @@ import {PagesService} from './pages.service';
 import { GalleryComponent } from './page/gallery/gallery.component';
 import { GalleryModule } from '@ngx-gallery/core';
 import { LightboxModule } from '@ngx-gallery/lightbox';
+
 @NgModule({
   declarations: [PagesComponent, TermConditionComponent, GalleryComponent],
   imports: [

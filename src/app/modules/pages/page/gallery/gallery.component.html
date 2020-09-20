@@ -12,34 +12,18 @@
 <section id="content">
     <div class="container">
         <div id="main">
-            <!-- <div class="gallery-filter box">
-                <a href="#" class="button btn-medium active" data-filter="filter-all">All</a>
-                <a href="#" class="button btn-medium" data-filter="filter-countries">Countries</a>
-                <a href="#" class="button btn-medium" data-filter="filter-adventure">Adventure</a>
-                <a href="#" class="button btn-medium" data-filter="filter-island">Island</a>
-                <a href="#" class="button btn-medium" data-filter="filter-beach">Beach</a>
-                <a href="#" class="button btn-medium" data-filter="filter-ocean">Ocean Park</a>
-            </div> -->
-            <div *ngIf="items" class="items-container isotope row image-box style9">
-                <div *ngFor="let item of items; index as i"  class="iso-item col-xs-12 col-sms-6 col-sm-6 col-md-4 filter-all filter-island filter-beach">
+            <div *ngIf="items" class="items-container isotope row image-box style9 image-gallery">
+                <div *ngFor="let item of items; index as i" class="iso-item col-xs-12 col-sms-6 col-sm-6 col-md-4 filter-all filter-island filter-beach">
                     <article class="box">
                         <figure>
-                           <img width="370"  height="190" alt="" [lightbox]="i"
-                           [src]="item.data.thumb">
+                            <img [lightbox]="i" [src]="item.data.thumb">
                         </figure>
                         <div class="details">
                             <h4 class="box-title">Family Beach Tour</h4>
                         </div>
                     </article>
                 </div>
-                <!-- <div *ngFor="let image of _albums; let i=index">
-                    <img [src]="image.thumb" (click)="open(i)" />
-                  </div> -->
-                  <!-- <img *ngFor="let item of items; index as i" 
-                  [lightbox]="i"
-                  [src]="item.data.thumb"> -->
             </div>
         </div>
     </div>
 </section>
-
