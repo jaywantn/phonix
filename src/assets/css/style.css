@@ -3293,8 +3293,8 @@ blockquote.style2:after {
 }
 
 .travelo-box.contact-us-box .contact-address li p {
-    font-size: 0.8333em;
-    text-transform: uppercase;
+    font-size: 1em;
+    text-transform: initial;
     margin-bottom: 0;
 }
 
