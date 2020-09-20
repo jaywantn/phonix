@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactService {
-  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/';
+  apiUrl: string = 'https://phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   bannerList;
 

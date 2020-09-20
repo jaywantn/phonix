@@ -1,0 +1,46 @@
+.basic-container {
+    padding: 5px;
+  }
+  
+  .version-info {
+    font-size: 8pt;
+    float: right;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .container img {
+    width: 100px;
+    height: 90px;
+    object-fit: cover;
+    margin: 5px;
+  }
+lightbox{
+    position: fixed;
+    display: inline-block;
+    width: 100%;
+    height: 648px;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 999;
+    top: 0;
+}
+  .g-overlay {
+    min-width: 320px;
+  }
+  
+  gallery {
+    font-size: 16px;
+  }
+  
+  img {
+    width: 150px;
+  }
+  
+  .lightbox-example, .gallerize-example {
+    margin: 2em;
+  }

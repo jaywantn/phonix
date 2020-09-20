@@ -26,7 +26,7 @@ export class NavComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.phoneNumber = this.generalData[5]['description'];
+    //this.phoneNumber = this.generalData[5]['description'];
   }
 
   toggleTheme(checked: boolean) {

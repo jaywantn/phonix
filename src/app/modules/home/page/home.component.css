@@ -9,3 +9,16 @@
 #content {
   margin-top: 1rem;
 }
+.testimonial.style1 .description, .testimonial.style2 .description {
+  font-size: 1.3333em;
+  color: #01b7f2;
+  font-style: italic;
+}
+.testimonial.style1 .author, .testimonial.style2 .author {
+  /* margin: 25px 0 10px; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+}
