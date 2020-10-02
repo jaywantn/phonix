@@ -1,21 +1,22 @@
 import { ConfigService } from './config.service';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   generalDetails: any = [];
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title,
-    private configService: ConfigService) {
-  }
+  isLoading: boolean;
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
+    private configService: ConfigService) { }
 
   ngOnInit(): void {
     this.router.events.pipe(
@@ -27,9 +28,8 @@ export class AppComponent {
         this.titleService.setTitle(data.title);
       });
     });
-    let generalData = JSON.parse(sessionStorage.getItem('generalDetails'));
-    
-    if(generalData === null ){
+    const generalData = JSON.parse(sessionStorage.getItem('generalDetails'));
+    if (generalData === null ){
       this.getDetails();
     }
   }
@@ -41,7 +41,8 @@ export class AppComponent {
       return activatedRoute;
     }
   }
-  getDetails() {
+
+  getDetails(): any {
     this.configService.generalDetails().subscribe((data: any[]) => {
       this.generalDetails = data;
       sessionStorage.setItem('generalDetails', JSON.stringify(this.generalDetails));

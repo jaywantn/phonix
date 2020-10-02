@@ -1,20 +1,6 @@
-import {
-  Component,
-  OnInit,
-  TemplateRef,
-  ElementRef,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { HomeService } from '../home.service';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder,
-} from '@angular/forms';
-declare var tjq: any;
 @Component({
   selector: 'app-home-banner',
   templateUrl: './home-banner.component.html',
@@ -27,36 +13,12 @@ declare var tjq: any;
   ],
 })
 export class HomeBannerComponent implements OnInit {
-  modalRef: BsModalRef;
   banner: any = [];
-  @ViewChild('template') modalTemplate: TemplateRef<any>;
-  contactForm: FormGroup;
-  submitted = false;
 
-  constructor(
-    private myService: HomeService,
-    private modalService: BsModalService,
-    private formBuilder: FormBuilder
-  ) {}
+  constructor( private myService: HomeService ) {}
 
   ngOnInit() {
     this.getBanner();
-
-    this.contactForm = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobile_no: new FormControl('', [Validators.required]),
-      message: new FormControl('', [Validators.required]),
-    });
-  }
-  ngAfterViewInit() {
-    // setTimeout(() => {
-    //   this.openModal(this.modalTemplate);
-    // }, 2000);
-  }
-
-  get f() {
-    return this.contactForm.controls;
   }
 
   getBanner() {
@@ -68,19 +30,7 @@ export class HomeBannerComponent implements OnInit {
         return item;
       });
       this.banner = data;
-      console.log("banner", this.banner);
+      console.log('banner', this.banner);
     });
-  }
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
-  onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.contactForm.invalid) {
-      return;
-    }
-    console.log(this.contactForm.value);
-    // this.contactForm.reset();
   }
 }

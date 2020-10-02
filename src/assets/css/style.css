@@ -1644,7 +1644,7 @@ textarea,
 span.custom-select {
     padding-left: 15px;
     padding-right: 15px;
-    height: 34px;
+    height: 40px;
 }
 
 input.input-text.input-large,
@@ -1657,7 +1657,7 @@ span.custom-select.input-large {
 input.input-text.input-medium,
 textarea.input-medium,
 span.custom-select.input-medium {
-    height: 34px;
+    height: 40px;
 }
 
 input.input-text.input-small,
@@ -1688,7 +1688,7 @@ textarea {
 /* 2.1.1. Select box */
 
 select {
-    height: 34px;
+    height: 40px;
     padding: 8px 0 8px 8px;
 }
 
@@ -2031,8 +2031,8 @@ input[type="button"].button {
     font-size: 0.9167em;
     font-weight: bold;
     background: #b96503;
-    height: 34px;
-    line-height: 34px;
+    height: 40px;
+    line-height: 40px;
 }
 
 button:hover,
@@ -5909,6 +5909,9 @@ ul.check-circle li:before {
 .listing-style1.flight .details .box-title,
 .listing-style1.car .details .box-title {
     text-transform: none;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .listing-style1.flight .details .box-title:after,
@@ -5964,7 +5967,7 @@ ul.check-circle li:before {
 }
 
 .listing-style1.flight .details .duration {
-    font-size: 0.8333em;
+    font-size: 1em;
     text-align: center;
     letter-spacing: 0.04em;
 }
@@ -5974,7 +5977,7 @@ ul.check-circle li:before {
 }
 
 .listing-style1.car .details .mile {
-    font-size: 0.8333em;
+    font-size: 1em;
     text-align: center;
 }
 
@@ -7883,12 +7886,12 @@ body.is-mobile .animated {
     background: url(../images/icon/mobile-menu.png) no-repeat center center #b96503;
     padding: 0;
     margin: 0;
-    height: 66px;
-    width: 66px;
+    height: 45px;
+    width: 45px;
     padding: 22px;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 10px;
     bottom: 0;
     text-indent: -9999px;
     display: none;
@@ -10354,7 +10357,7 @@ ul.search-tabs li.active a {
 }
 
 .search-tab-content .fixheight {
-    padding-top: 40px;
+    padding-top: 0px;
 }
 
 

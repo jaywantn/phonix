@@ -15,7 +15,7 @@ export class TodoService {
   private baseUrl = 'https://56e05c3213da80110013eba3.mockapi.io/api';
   private dataStore: { todos: Todo[] } = { todos: [] };
   readonly todos = this._todos.asObservable();
-  private propertyUrl = 'http://localhost:4000/characters';  
+  private propertyUrl = 'http://localhost:4000/characters';
   cars = [];
   bannerImages = [];
   constructor(private http: HttpClient) {
@@ -23,7 +23,7 @@ export class TodoService {
       // this.getAll();
    }
    getAll(): Observable<any[]>{
-    
+
     console.log(`${this.propertyUrl}/api/store.php`);
     return this.http.get(`${this.propertyUrl}/api/store.php`).pipe(
       map((res) => {
