@@ -9,7 +9,6 @@ import { Title, Meta } from '@angular/platform-browser';
 export class FaqComponent {
   details:any;
   faqList :any =[];
-  title = 'FAQ Phoenix land Developer';
   constructor(private faqService: FaqService,
     private meta: Meta,
     private titleService: Title){}
@@ -24,7 +23,7 @@ export class FaqComponent {
 
   }
   getDetails() {
-    this.faqService.getDetails().subscribe((data: any) => { 
+    this.faqService.getDetails().subscribe((data: any) => {
       this.details = data;
       this.faqList = data.result;
       console.log(this.faqList);

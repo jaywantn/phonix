@@ -9,7 +9,7 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class GalleryComponent implements OnInit {
   items: GalleryItem[];
-  galleryList :any;
+  galleryList: any;
   imageList: any;
   seoDetails: any;
   constructor(
@@ -38,7 +38,7 @@ export class GalleryComponent implements OnInit {
       this.imageList = this.galleryList.galleryList;
       this.seoDetails = this.galleryList.seo;
       this.seoGenerate();
-     console.log('getGallery', this.imageList);
+      console.log('getGallery', this.imageList);
     });
   }
   seoGenerate(){

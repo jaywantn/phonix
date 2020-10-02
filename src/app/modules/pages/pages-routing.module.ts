@@ -7,8 +7,8 @@ import { PagesComponent } from './page/product/pages.component';
 
 const routes: Routes = [
   { path: '', component: PagesComponent },
-  { path: 'term-condition', component: TermConditionComponent },
-  { path: 'gallery', component: GalleryComponent }
+  { path: 'term-condition', component: TermConditionComponent, data: {title: 'Term Condition'} },
+  { path: 'gallery', component: GalleryComponent, data: {title: 'Gallery'}  }
 ];
 
 @NgModule({
