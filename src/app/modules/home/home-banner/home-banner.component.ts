@@ -74,13 +74,5 @@ export class HomeBannerComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
-  onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.contactForm.invalid) {
-      return;
-    }
-    console.log(this.contactForm.value);
-    // this.contactForm.reset();
-  }
+  
 }

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ConfigService } from './config.service';
 
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { ConfigService } from './config.service';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

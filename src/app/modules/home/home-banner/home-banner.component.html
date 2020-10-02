@@ -1,11 +1,10 @@
-<carousel>
+<carousel *ngIf="banner">
     <slide *ngFor="let post of banner; let i = index;">
         <a href="{{post.banner_link}}">
             <img src="{{post.banner_image}}" alt="first slide" style="display: block; width: 100%; max-height: 700px;">
         </a>
     </slide>
-</carousel>
-
+</carousel> 
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Share your Details. We will contact you</h4>

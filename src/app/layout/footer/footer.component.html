@@ -47,8 +47,8 @@
                     <h2>ABOUT PHOENIX</h2>
                     <p>Holiday Homes is a project by Asha Developers offering NA Plots, 2 BHK Twin Bungalow and 2 BHK Independent Bungalow at Pune.</p>
                     <br />
-                    <address class="contact-details">
-                      <span class="contact-phone"><i class="soap-icon-phone"></i> 1-800-123-HELLO</span>
+                    <address class="contact-details" *ngIf="extraNo">
+                      <span class="contact-phone"><i class="soap-icon-phone"></i> {{extraNo}}</span>
                       <br />
 
                   </address>
@@ -58,7 +58,7 @@
                     <h2>CONTACT DETAILS</h2>
                     <p>Phoenix Land Developers, Regus Level II, Connaught Place, Bund Garden Road, Kothrud Pune</p>
                     <p *ngIf="phoneNumber">Phone: {{phoneNumber }}</p>
-                    <p>Email: contacton@phonixdeveloper.com</p>
+                    <p>Email: info@phonixdeveloper.com</p>
                     <br />
                     <ul class="social-icons clearfix">
                         <li class="twitter"><a title="youtube" href="{{youtube}}" target="_blank" data-toggle="tooltip"><i class="soap-icon-youtube"></i></a></li>

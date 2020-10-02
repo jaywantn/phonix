@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Gallery, GalleryItem, ImageItem, ThumbnailsPosition, ImageSize } from '@ngx-gallery/core';
+import { PagesService } from '../../pages.service';
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -8,8 +10,12 @@ import { Gallery, GalleryItem, ImageItem, ThumbnailsPosition, ImageSize } from '
 })
 export class GalleryComponent implements OnInit {
   items: GalleryItem[];
-
-  constructor(public gallery: Gallery) {
+  galleryList :any;
+  imageList: any;
+  seoDetails: any;
+  constructor(private pagesService: PagesService,public gallery: Gallery,
+    private titleService: Title,
+    private meta: Meta) {
   }
 
   ngOnInit() {
@@ -24,8 +30,22 @@ export class GalleryComponent implements OnInit {
     // Load item into different lightbox instance
     // With custom gallery config
     this.withCustomGalleryConfig();
+    this.getGallery();
   }
-
+  getGallery(): any {
+    this.pagesService.getGallery().subscribe((data: any[]) => {
+      this.galleryList = data;
+      this.imageList = this.galleryList.galleryList;
+      this.seoDetails = this.galleryList.seo;
+      this.seoGenerate();
+     console.log('getGallery', this.imageList);
+    });
+  }
+  seoGenerate(){
+    this.titleService.setTitle(this.seoDetails.seo_title);
+    this.meta.updateTag({name: 'keywords', content: this.seoDetails.seo_keyword});
+    this.meta.updateTag({name: 'description', content: this.seoDetails.seo_description}, 'name="description"');
+  }
   basicLightboxExample() {
     this.gallery.ref().load(this.items);
   }

@@ -18,6 +18,10 @@ export class PagesService {
   public getTerm() {
     return this.http.get(this.apiUrl+'page/termCondition');
   }
+  
+  public getGallery() {
+    return this.http.get(this.apiUrl+'gallery');
+  }
   // Handle Errors
   error(error: HttpErrorResponse) {
     let errorMessage = '';
