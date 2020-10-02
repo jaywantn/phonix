@@ -45,10 +45,10 @@
                     <li class="menu-item-has-children">
                         <a routerLink="contact">Contact</a>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a (click)="openModal()">Enquiry Now</a>
-                    </li>
                 </ul>
+                <div class="enquiery-now">
+                    <a (click)="openModal()">Enquiry Now</a>
+                </div>
             </nav>
         </div>
 
@@ -69,6 +69,9 @@
                 <li class="menu-item-has-children">
                     <a routerLink="about">Contact</a>
                 </li>
+                <li class="menu-item-has-children">
+                    <a (click)="openModal()">Enquiry Now</a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -76,7 +79,7 @@
 
 <ng-template #template>
     <div class="modal-header">
-        <h4 class="modal-title pull-left">Share your Details. We will contact you</h4>
+        <h5 class="modal-title pull-left">Share your Details. We will contact you</h5>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -132,7 +135,7 @@
                         <div *ngIf="f.message.errors.required && !f.message.touched">Message is required</div>
                     </div>
                 </div>
-                <button class="btn-large full-width" class="error">
+                <button class="btn-medium">
                 SEND MESSAGE
               </button>
             </form>

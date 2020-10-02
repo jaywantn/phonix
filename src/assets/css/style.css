@@ -2037,7 +2037,7 @@ input[type="button"].button {
 
 button:hover,
 input[type="button"].button:hover {
-    background: #cc730c;
+    background: #b96503;
 }
 
 a.button {
@@ -7874,7 +7874,7 @@ body.is-mobile .animated {
 #header .logo {
     padding: 0;
     text-align: left;
-    margin: 19px 0;
+    margin: 8px 0;
     height: auto;
 }
 
@@ -8568,8 +8568,8 @@ body.is-mobile .animated {
     font-weight: normal;
     display: block;
     padding: 0;
-    height: 85px;
-    line-height: 85px;
+    height: 65px;
+    line-height: 65px;
     text-transform: capitalize;
     letter-spacing: 0.04em;
 }

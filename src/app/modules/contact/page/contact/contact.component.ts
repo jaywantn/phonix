@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../contact.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   details: any;
   zoom = 12;
   formStatus = false;
@@ -23,9 +23,10 @@ export class ContactComponent {
     maxZoom: 15,
     minZoom: 8,
   };
-  contactForm :FormGroup;
+  contactForm: FormGroup;
   submitted = false;
-  constructor(private contactService: ContactService,
+  constructor(
+    private contactService: ContactService,
     private formBuilder: FormBuilder,
     private titleService: Title,
     private meta: Meta) {}

@@ -5,18 +5,18 @@ import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
   items: GalleryItem[];
   galleryList :any;
   imageList: any;
   seoDetails: any;
-  constructor(private pagesService: PagesService,public gallery: Gallery,
+  constructor(
+    private pagesService: PagesService,
+    public gallery: Gallery,
     private titleService: Title,
-    private meta: Meta) {
-  }
+    private meta: Meta) { }
 
   ngOnInit() {
     // 1. Create gallery items
