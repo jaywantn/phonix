@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
-declare var tjq: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-   // projects$: Observable<Project[]> = this.projectService.getAll();
    locationList;
    typeList;
    projectList;
+   loading;
   constructor(
     private myService: HomeService
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
     this.getLocation();
@@ -28,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
   getPropertyType() {
     this.myService.getPropertyType().subscribe((data: any[]) => {
-     console.log(data);
+      console.log(data);
       this.typeList = data;
     });
   }
@@ -36,13 +34,11 @@ export class HomeComponent implements OnInit {
   getPropertyList() {
     this.myService.getPropertyList().subscribe((data: any[]) => {
       data.map((item) => {
-        item.img =
-          'https://www.phoenixdeveloper.in/backend/upload/property/' +
-          item.img;
+        item.img = 'https://www.phoenixdeveloper.in/backend/upload/property/' + item.img;
         return item;
       });
       this.projectList = data;
-      console.log('projectList',this.projectList )
+      console.log('projectList', this.projectList);
     });
   }
 }

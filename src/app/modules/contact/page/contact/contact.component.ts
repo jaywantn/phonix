@@ -29,13 +29,13 @@ export class ContactComponent {
     private formBuilder: FormBuilder,
     private titleService: Title,
     private meta: Meta) {}
-  
+
 
   ngOnInit() {
     this.meta.addTag({name: 'author', content: 'Phonix Lad Developers'});
     this.meta.addTag({name: 'robots', content: 'index, follow'});
 
-    this.phoneNumber = this.generalData[5]['description'];  
+    this.phoneNumber = this.generalData[5]['description'];
     this.contactForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -57,20 +57,20 @@ export class ContactComponent {
   onSubmit() {
     this.submitted = true;
      // stop here if form is invalid
-     if (this.contactForm.invalid) {
+    if (this.contactForm.invalid) {
         return;
     }
     console.log(this.contactForm.value);
     this.contactService.sendPostRequest(this.contactForm.value).subscribe(
       res => {
-        if(res == 'success'){
+        if(res === 'success'){
           this.submitted = false;
-          this.formStatus =true
+          this.formStatus = true;
         }
         console.log(res);
       }
     );
-   this.contactForm.reset();
+    this.contactForm.reset();
   }
 
   getDetails() {
@@ -81,11 +81,11 @@ export class ContactComponent {
     });
   }
   zoomIn() {
-    if (this.zoom < this.options.maxZoom) this.zoom++;
+    if (this.zoom < this.options.maxZoom) { this.zoom++; }
   }
 
   zoomOut() {
-    if (this.zoom > this.options.minZoom) this.zoom--;
+    if (this.zoom > this.options.minZoom) { this.zoom--; }
   }
   seoGenerate(){
     this.titleService.setTitle(this.details.seo_title);
