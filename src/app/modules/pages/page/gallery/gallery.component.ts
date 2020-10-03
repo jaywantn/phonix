@@ -41,19 +41,19 @@ export class GalleryComponent implements OnInit {
       console.log('getGallery', this.imageList);
     });
   }
-  seoGenerate(){
+  seoGenerate(): void {
     this.titleService.setTitle(this.seoDetails.seo_title);
     this.meta.updateTag({name: 'keywords', content: this.seoDetails.seo_keyword});
     this.meta.updateTag({name: 'description', content: this.seoDetails.seo_description}, 'name="description"');
   }
-  basicLightboxExample() {
+  basicLightboxExample(): void {
     this.gallery.ref().load(this.items);
   }
 
   /**
    * Use custom gallery config with the lightbox
    */
-  withCustomGalleryConfig() {
+  withCustomGalleryConfig(): void {
 
     // 2. Get a lightbox gallery ref
     const lightboxGalleryRef = this.gallery.ref('anotherLightbox');
