@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../contact.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +10,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
+  contactForm: FormGroup;
+  submitted = false;
   details: any;
   zoom = 12;
   formStatus = false;
@@ -23,8 +26,7 @@ export class ContactComponent implements OnInit {
     maxZoom: 15,
     minZoom: 8,
   };
-  contactForm: FormGroup;
-  submitted = false;
+
   constructor(
     private contactService: ContactService,
     private formBuilder: FormBuilder,
@@ -32,16 +34,16 @@ export class ContactComponent implements OnInit {
     private meta: Meta) {}
 
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.meta.addTag({name: 'author', content: 'Phonix Lad Developers'});
     this.meta.addTag({name: 'robots', content: 'index, follow'});
-
     this.phoneNumber = this.generalData[5]['description'];
+
     this.contactForm = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobile_no: new FormControl('', [Validators.required]),
-      message: new FormControl('', [Validators.required]),
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      mobile_no: ['', Validators.required],
+      message: ['', Validators.required]
     });
 
     navigator.geolocation.getCurrentPosition((position) => {
@@ -55,7 +57,7 @@ export class ContactComponent implements OnInit {
    // convenience getter for easy access to form fields
    get f() { return this.contactForm.controls; }
 
-  onSubmit() {
+  onSubmit(): Observable<any> {
     this.submitted = true;
      // stop here if form is invalid
     if (this.contactForm.invalid) {
@@ -64,7 +66,7 @@ export class ContactComponent implements OnInit {
     console.log(this.contactForm.value);
     this.contactService.sendPostRequest(this.contactForm.value).subscribe(
       res => {
-        if(res === 'success'){
+        if (res === 'success'){
           this.submitted = false;
           this.formStatus = true;
         }

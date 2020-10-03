@@ -9,11 +9,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./project-enquiry.component.css'],
 })
 export class ProjectEnquiryComponent implements OnInit {
-  enquiryForm :FormGroup;
-  submitted =false;
-  formStatus =false;
+  enquiryForm: FormGroup;
+  submitted = false;
+  formStatus = false;
   pid = '';
-  constructor(private formBuilder: FormBuilder, 
+  constructor(
+    private formBuilder: FormBuilder,
     private projectService: ProjectService,
     private route: ActivatedRoute,) { }
 
@@ -21,36 +22,35 @@ export class ProjectEnquiryComponent implements OnInit {
     this.pid = this.route.snapshot.paramMap.get("id");
 
     this.enquiryForm = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.required]),
-      message: new FormControl('', [Validators.required]),
-      city: new FormControl('')
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
+      message: ['', Validators.required],
+      city: ['']
     });
-  
+
    }
    // convenience getter for easy access to form fields
    get enFrom() { return this.enquiryForm.controls; }
 
- 
+
 
   onSubmit(): void {
-    //console.log();
     this.submitted = true;
     this.formStatus = true;
     // stop here if form is invalid
     if (this.enquiryForm.invalid) {
        return;
    }
-    let data = this.enquiryForm.value;
+    const data = this.enquiryForm.value;
     data["pid"] = this.pid ;
     this.projectService.sendPostRequest(data).subscribe(
       res => {
-        if(res === 'success'){
+        if (res === 'success'){
           this.submitted =true;
           this.formStatus = true;
         }
-        console.log("response form",res);
+        console.log('response form', res);
       }
     );
   }

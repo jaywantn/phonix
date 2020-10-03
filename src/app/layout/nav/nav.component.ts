@@ -4,6 +4,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
  // import { environment } from '@env';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ContactService } from 'src/app/modules/contact/contact.service';
 //import { ThemeService } from '../../core/service/theme.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class NavComponent implements OnInit {
   @ViewChild('template') modalTemplate: TemplateRef<any>;
   contactForm: FormGroup;
   submitted = false;
-
+  formStatus = false;
   public repoUrl = 'https://github.com/mathisGarberg/angular-folder-structure';
   public isDarkTheme$: Observable<boolean>;
   phoneNumber;
@@ -30,17 +31,17 @@ export class NavComponent implements OnInit {
 
   constructor(
   //  private themeService: ThemeService
+    private contactService: ContactService,
     private modalService: BsModalService,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
-    //this.phoneNumber = this.generalData[5]['description'];
     this.contactForm = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobile_no: new FormControl('', [Validators.required]),
-      message: new FormControl('', [Validators.required]),
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      mobile_no: ['', Validators.required],
+      message: ['', Validators.required]
     });
   }
 
@@ -48,19 +49,28 @@ export class NavComponent implements OnInit {
     // this.themeService.setDarkTheme(checked);
   }
 
-  openModal() {
+  openModal(): void {
     this.modalRef = this.modalService.show(this.modalTemplate);
   }
   get f() {
     return this.contactForm.controls;
   }
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
     // stop here if form is invalid
     if (this.contactForm.invalid) {
       return;
     }
     console.log(this.contactForm.value);
-    // this.contactForm.reset();
+    this.contactService.sendPostRequest(this.contactForm.value).subscribe(
+      res => {
+        if (res === 'success'){
+          this.submitted = false;
+          this.formStatus = true;
+        }
+        console.log(res);
+      }
+    );
+    this.contactForm.reset();
   }
 }

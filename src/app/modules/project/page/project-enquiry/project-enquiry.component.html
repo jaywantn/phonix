@@ -1,167 +1,130 @@
 <div class="page-title-container">
-  <div class="container">
-    <div class="page-title pull-left">
-      <h2 class="entry-title">Project Enquiry</h2>
+    <div class="container">
+        <div class="page-title pull-left">
+            <h2 class="entry-title">Project Enquiry</h2>
+        </div>
+        <ul class="breadcrumbs pull-right">
+            <li><a routerLink="/home">HOME</a></li>
+            <li><a routerLink="/project">Project</a></li>
+            <li class="active">Project Enquiry</li>
+        </ul>
     </div>
-    <ul class="breadcrumbs pull-right">
-      <li><a routerLink="/home">HOME</a></li>
-      <li><a routerLink="/project">Project</a></li>
-      <li class="active">Project Enquiry</li>
-    </ul>
-  </div>
 </div>
 <section id="content" class="gray-area">
-  <div class="container">
-    <div class="row">
-      <div id="main" class="col-sms-6 col-sm-8 col-md-9">
-        <div class="booking-section travelo-box" *ngIf="!formStatus">
-          <form
-            class="booking-form"
-            method="post"
-            [formGroup]="enquiryForm"
-            (ngSubmit)="onSubmit()"
-          >
-            <div class="person-information">
-              <h2>Your Personal Information</h2>
-              <div class="form-group row">
-                <div class="col-sm-12">
-                  <label>name *</label>
-                  <input
-                    type="text"
-                    class="input-text full-width"
-                    value=""
-                    placeholder=""
-                    formControlName="name"
-                  />
-                  <div *ngIf="enFrom.name.touched && enFrom.name.invalid" class="error">
-                    <div *ngIf="enFrom.name.errors.required">Name is required</div>
-                  </div>
-                  <div *ngIf="submitted && enFrom.name.errors" class="error">
-                      <div *ngIf="enFrom.name.errors.required && !enFrom.name.touched">Full Name is required</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-6 col-md-6">
-                  <label>email address *</label>
-                  <input
-                    type="text"
-                    class="input-text full-width"
-                    value=""
-                    placeholder=""
-                    formControlName="email"
-                  />
-                  <div *ngIf="enFrom.email.touched && enFrom.email.invalid" class="error">
-                    <div *ngIf="enFrom.email.errors.required">Email is required</div>
-                    <div *ngIf="enFrom.email.errors.email">
-                      Please enter valid email
-                    </div>
-                  </div>
-                  <div *ngIf="submitted && enFrom.email.errors" class="error">
-                      <div *ngIf="enFrom.email.errors.required && !enFrom.email.touched">Full Name is required</div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-6">
-                  <label>phone *</label>
-                  <input
-                    type="text"
-                    class="input-text full-width"
-                    value=""
-                    placeholder=""
-                    formControlName="phone"
-                  />
-                  <div *ngIf="enFrom.phone.touched && enFrom.phone.invalid" class="error">
-                    <div *ngIf="enFrom.phone.errors.required">Phone is required</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-6 col-md-6">
-                  <label>City</label>
-                  <input
-                    type="text"
-                    class="input-text full-width"
-                    value="Pune"
-                    placeholder="Pune"
-                    formControlName="city"
-                  />
-                 
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-12">
-                  <label>Message *</label>
-                  <input
-                    type="text"
-                    class="input-text full-width"
-                    value=""
-                    placeholder=""
-                    formControlName="message"
-                  />
-                  <div *ngIf="enFrom.message.touched && enFrom.message.invalid" class="error">
-                    <div *ngIf="enFrom.message.errors.required">
-                      Message is required
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="checkbox">
-                  <label>
+    <div class="container">
+        <div class="row">
+            <div id="main" class="col-sms-6 col-sm-8 col-md-9">
+                <div class="booking-section travelo-box" *ngIf="!formStatus">
+                    <form class="booking-form" method="post" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+                        <div class="person-information">
+                            <h2>Your Personal Information</h2>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label>name *</label>
+                                    <input type="text" class="input-text full-width" value="" placeholder="" formControlName="name" />
+                                    <div *ngIf="enFrom.name.touched && enFrom.name.invalid" class="error">
+                                        <div *ngIf="enFrom.name.errors.required">Name is required</div>
+                                    </div>
+                                    <div *ngIf="submitted && enFrom.name.errors" class="error">
+                                        <div *ngIf="enFrom.name.errors.required && !enFrom.name.touched">Full Name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 col-md-6">
+                                    <label>email address *</label>
+                                    <input type="text" class="input-text full-width" value="" placeholder="" formControlName="email" />
+                                    <div *ngIf="enFrom.email.touched && enFrom.email.invalid" class="error">
+                                        <div *ngIf="enFrom.email.errors.required">Email is required</div>
+                                        <div *ngIf="enFrom.email.errors.email">
+                                            Please enter valid email
+                                        </div>
+                                    </div>
+                                    <div *ngIf="submitted && enFrom.email.errors" class="error">
+                                        <div *ngIf="enFrom.email.errors.required && !enFrom.email.touched">Full Name is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <label>phone *</label>
+                                    <input type="text" class="input-text full-width" value="" placeholder="" formControlName="phone" />
+                                    <div *ngIf="enFrom.phone.touched && enFrom.phone.invalid" class="error">
+                                        <div *ngIf="enFrom.phone.errors.required">Phone is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 col-md-6">
+                                    <label>City</label>
+                                    <input type="text" class="input-text full-width" value="Pune" placeholder="Pune" formControlName="city" />
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label>Message *</label>
+                                    <input type="text" class="input-text full-width" value="" placeholder="" formControlName="message" />
+                                    <div *ngIf="enFrom.message.touched && enFrom.message.invalid" class="error">
+                                        <div *ngIf="enFrom.message.errors.required">
+                                            Message is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
                     <input type="checkbox" [value]="1" />
                     I want to receive
                     <span class="skin-color">Property</span> promotional offers
                     in the future
                   </label>
-                </div>
-              </div>
-            </div>
-            <hr />
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
 
-            <div class="form-group row">
-              <div class="col-sm-6 col-md-5">
-                <button
-                  class="full-width btn-large"
-                  [disabled]="enquiryForm.invalid"
-                >
+                        <div class="form-group row">
+                            <div class="col-sm-6 col-md-5">
+                                <button class="full-width btn-large" [disabled]="enquiryForm.invalid">
                   Save Inquiry
                 </button>
-              </div>
-            </div>
-          </form>
-        </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-        <!-- thank you message -->
-        <div class="booking-information travelo-box" *ngIf="formStatus">
-          <h2>Inquiry Confirmation</h2>
-          
-          <hr />
-          <dl class="term-description">
-              <dt>Full name:</dt><dd>{{enquiryForm.value.name}}</dd>
-              <dt>E-mail address:</dt><dd>{{enquiryForm.value.email}}</dd>
-              <dt>Mobile number:</dt><dd>{{enquiryForm.value.phone}}</dd>
-              <dt>Message:</dt><dd>{{enquiryForm.value.message}}</dd>
-          </dl>
-          <hr />
-      </div>
-  
-      </div>
-      <div class="sidebar col-sms-6 col-sm-4 col-md-3">
-        <div class="travelo-box contact-box">
-          <h4>Need Any Help?</h4>
-          <p>
-            We would be more than happy to help you. Our team advisor are 24/7
-            at your service to help you.
-          </p>
-          <address class="contact-details">
-            <span class="contact-phone"
-              ><i class="soap-icon-phone"></i> 1-800-123-HELLO</span
-            >
+                <!-- thank you message -->
+                <div class="booking-information travelo-box" *ngIf="formStatus">
+                    <h2>Inquiry Confirmation</h2>
+
+                    <hr />
+                    <dl class="term-description">
+                        <dt>Full name:</dt>
+                        <dd>{{enquiryForm.value.name}}</dd>
+                        <dt>E-mail address:</dt>
+                        <dd>{{enquiryForm.value.email}}</dd>
+                        <dt>Mobile number:</dt>
+                        <dd>{{enquiryForm.value.phone}}</dd>
+                        <dt>Message:</dt>
+                        <dd>{{enquiryForm.value.message}}</dd>
+                    </dl>
+                    <hr />
+                </div>
+
+            </div>
+            <div class="sidebar col-sms-6 col-sm-4 col-md-3">
+                <div class="travelo-box contact-box">
+                    <h4>Need Any Help?</h4>
+                    <p>
+                        We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.
+                    </p>
+                    <address class="contact-details">
+            <span class="contact-phone"><i class="soap-icon-phone"></i> 1-800-123-HELLO</span>
             <br />
             <a class="contact-email" href="#">info@phoenixdeveloper.in</a>
           </address>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

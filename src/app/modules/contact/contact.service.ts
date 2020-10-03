@@ -7,17 +7,18 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactService {
-  apiUrl: string = 'https://phoenixdeveloper.in/backend/api/';
+  apiUrl = '//phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   bannerList;
 
   constructor(private http: HttpClient) { }
 
-  public getBanner() {
-    return this.http.get(this.apiUrl+'page/contact');
+  public getBanner(): Observable<any> {
+    return this.http.get(this.apiUrl + 'page/contact');
   }
+
   sendPostRequest(data: any): Observable<any> {
-      return this.http.post<any>(this.apiUrl+'page/contactEnquiry', data);
+      return this.http.post<any>(this.apiUrl + 'page/contactEnquiry', data);
   }
   // Handle Errors
   error(error: HttpErrorResponse) {
