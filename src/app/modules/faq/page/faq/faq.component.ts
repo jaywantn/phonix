@@ -14,7 +14,6 @@ export class FaqComponent {
     private titleService: Title){}
   ngOnInit() {
     this.getDetails();
-    this.titleService.setTitle(this.title);
   	this.meta.addTag({name: 'author', content: 'Phonix Lad Developers'});
     this.meta.addTag({name: 'robots', content: 'index, follow'});
     this.meta.updateTag({name: 'keywords', content: 'FAQ Phonix Lad Developers'});

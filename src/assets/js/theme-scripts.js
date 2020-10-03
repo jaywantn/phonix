@@ -363,7 +363,7 @@ if (typeof enableChaser == "undefined") {
 
 /*if(enableChaser == 1) {
     tjq(window).load(function() {
-        
+
     });
 }*/
 
@@ -700,32 +700,32 @@ tjq(window).load(function() {
     });
 
     // Mobile menu
-    tjq(".mobile-menu ul.menu > li.menu-item-has-children").each(function(
-        index
-    ) {
-        var menuItemId = "mobile-menu-submenu-item-" + index;
-        tjq(
-            '<button class="dropdown-toggle collapsed" data-toggle="collapse" data-target="#' +
-            menuItemId +
-            '"></button>'
-        ).insertAfter(tjq(this).children("a"));
-        /*tjq(this).children(".dropdown-toggle").click(function(e) {
-                if (tjq(this).hasClass("collapsed")) {
-                    tjq(this).parent().addClass("open");
-                } else {
-                    tjq(this).parent().removeClass("open");
-                }
-            });*/
-        tjq(this).children("ul").prop("id", menuItemId);
-        tjq(this).children("ul").addClass("collapse");
+    // tjq(".mobile-menu ul.menu > li.menu-item-has-children").each(function(
+    //     index
+    // ) {
+    //     var menuItemId = "mobile-menu-submenu-item-" + index;
+    //     tjq(
+    //         '<button class="dropdown-toggle collapsed" data-toggle="collapse" data-target="#' +
+    //         menuItemId +
+    //         '"></button>'
+    //     ).insertAfter(tjq(this).children("a"));
+    //     /*tjq(this).children(".dropdown-toggle").click(function(e) {
+    //             if (tjq(this).hasClass("collapsed")) {
+    //                 tjq(this).parent().addClass("open");
+    //             } else {
+    //                 tjq(this).parent().removeClass("open");
+    //             }
+    //         });*/
+    //     tjq(this).children("ul").prop("id", menuItemId);
+    //     tjq(this).children("ul").addClass("collapse");
 
-        tjq("#" + menuItemId).on("show.bs.collapse", function() {
-            tjq(this).parent().addClass("open");
-        });
-        tjq("#" + menuItemId).on("hidden.bs.collapse", function() {
-            tjq(this).parent().removeClass("open");
-        });
-    });
+    //     tjq("#" + menuItemId).on("show.bs.collapse", function() {
+    //         tjq(this).parent().addClass("open");
+    //     });
+    //     tjq("#" + menuItemId).on("hidden.bs.collapse", function() {
+    //         tjq(this).parent().removeClass("open");
+    //     });
+    // });
 
     // middle block
     tjq(".middle-block").middleblock();

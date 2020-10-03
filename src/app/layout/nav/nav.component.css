@@ -6,6 +6,41 @@
 
 #main-menu ul.menu>li>a,
 .chaser ul.menu>li>a {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
+    color: black;
+}
+
+#main-menu ul.menu>li>a.active,
+.chaser ul.menu>li>a.active {
+    color: #b96503;
+}
+
+#main-menu ul.menu>li:first-child,
+.chaser ul.menu>li:first-child {
+    padding-left: 20px;
+}
+
+#header .mobile-menu a {
+    opacity: 1;
+}
+
+#header .mobile-menu>ul.menu>li>a {
+    font-size: 0.8em;
+    border-top: 1px solid #dc8d30;
+    padding: 10px 0;
+    text-transform: capitalize;
+}
+
+#header .mobile-menu>ul.menu>li:last-child>a {
+    border-top: 1px solid #dc8d30;
+}
+
+@media (max-width: 991px) {
+    #header .logo a {
+        background-size: auto 35px;
+    }
+    #header .logo img {
+        height: 35px;
+    }
 }
