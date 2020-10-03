@@ -12,7 +12,9 @@
 }
 
 #main-menu ul.menu>li>a.active,
-.chaser ul.menu>li>a.active {
+.chaser ul.menu>li>a.active,
+#main-menu ul.menu>li>a:hover,
+.chaser ul.menu>li>a:hover {
     color: #b96503;
 }
 
