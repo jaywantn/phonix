@@ -18,19 +18,8 @@ export class HomeBannerComponent implements OnInit {
   constructor( private myService: HomeService ) {}
 
   ngOnInit() {
-    this.getBanner();
+
   }
 
-  getBanner() {
-    this.myService.getBanner().subscribe((data: any[]) => {
-      data.map((item) => {
-        item.banner_image =
-          '//phoenixdeveloper.in/backend/upload/banner/' +
-          item.banner_image;
-        return item;
-      });
-      this.banner = data;
-      console.log('banner', this.banner);
-    });
-  }
+
 }

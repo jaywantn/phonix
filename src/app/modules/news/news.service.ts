@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-//import { catchError } from 'rxjs/operators';
+import { AppConstants } from 'src/app/app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
-  apiUrl: string = '//phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public appConstants: AppConstants) { }
+  apiUrl = this.appConstants.baseURL;
 
-  public getList() {
-    return this.http.get(this.apiUrl+'news/listF');
+  public getList(): Observable<any> {
+    return this.http.get(this.apiUrl + 'news/listF');
   }
-  public getDetails(newsId) {
-    return this.http.get(this.apiUrl+'news/details/'+ newsId);
+
+  public getDetails(newsId: any): Observable<any> {
+    return this.http.get(this.apiUrl + 'news/details/' + newsId);
   }
+
   // Handle Errors
-  error(error: HttpErrorResponse) {
+  error(error: HttpErrorResponse): any {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;

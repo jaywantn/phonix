@@ -1,32 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-//import { catchError } from 'rxjs/operators';
+import { AppConstants } from './../../app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-  apiUrl: string = '//phoenixdeveloper.in/backend/api/';
+  constructor(private http: HttpClient, public appConstants: AppConstants) { }
+  apiUrl = this.appConstants.baseURL;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   bannerList;
 
-  constructor(private http: HttpClient) { }
-
-  public getBanner() {
-    return this.http.get(this.apiUrl+'banner/bannerList');
+  public getBanner(): Observable<any> {
+    return this.http.get(this.apiUrl + 'banner/bannerList');
   }
-  public getLocation() {
-    return this.http.get(this.apiUrl+'property/location');
+  public getLocation(): Observable<any> {
+    return this.http.get(this.apiUrl + 'property/location');
   }
-  public getPropertyType() {
-    return this.http.get(this.apiUrl+'property/propertyType');
+  public getPropertyType(): Observable<any> {
+    return this.http.get(this.apiUrl + 'property/propertyType');
   }
-  public getPropertyList() {
-    return this.http.get(this.apiUrl+'property/listFront');
+  public getPropertyList(): Observable<any> {
+    return this.http.get(this.apiUrl + 'property/listFront');
   }
   // Handle Errors
-  error(error: HttpErrorResponse) {
+  error(error: HttpErrorResponse): any {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;

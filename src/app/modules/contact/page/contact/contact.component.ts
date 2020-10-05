@@ -37,7 +37,9 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.meta.addTag({name: 'author', content: 'Phonix Lad Developers'});
     this.meta.addTag({name: 'robots', content: 'index, follow'});
-    this.phoneNumber = this.generalData[5]['description'];
+    if (this.generalData) {
+      this.phoneNumber = this.generalData[5].description;
+    }
 
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -76,21 +78,21 @@ export class ContactComponent implements OnInit {
     this.contactForm.reset();
   }
 
-  getDetails() {
+  getDetails(): void {
     this.contactService.getBanner().subscribe((data: any) => {
       this.details = data;
       console.log(this.details);
       this.seoGenerate();
     });
   }
-  zoomIn() {
+  zoomIn(): void {
     if (this.zoom < this.options.maxZoom) { this.zoom++; }
   }
 
-  zoomOut() {
+  zoomOut(): void {
     if (this.zoom > this.options.minZoom) { this.zoom--; }
   }
-  seoGenerate(){
+  seoGenerate(): void {
     this.titleService.setTitle(this.details.seo_title);
     this.meta.updateTag({name: 'keywords', content: this.details.seo_keyword});
     this.meta.updateTag({name: 'description', content: this.details.seo_description}, 'name="description"');

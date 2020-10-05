@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-//import { catchError } from 'rxjs/operators';
+import { AppConstants } from 'src/app/app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FaqService {
-  apiUrl: string = '//phoenixdeveloper.in/backend/api/page/faq';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public appConstants: AppConstants) { }
+  apiUrl = this.appConstants.baseURL;
 
-  public getDetails() {
+  public getDetails(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
   // Handle Errors
-  error(error: HttpErrorResponse) {
+  error(error: HttpErrorResponse): any {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;

@@ -13894,17 +13894,13 @@ button.ui-button::-moz-focus-inner {
     font-size: 0.9133em;
 }
 
-#footer .bottom {
-    height: 60px;
-}
-
 #footer .bottom .logo {
     margin: 18px 0 0;
 }
 
 #footer .bottom .copyright {
-    font-size: 1.0833em;
-    margin: 23px 20px 0;
+    font-size: 0.9em;
+    margin: 20px;
 }
 
 #footer .bottom #back-to-top {

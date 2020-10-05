@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
-import { HttpErrorResponse, HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AppConstants } from './app.constants';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ConfigService {
-  apiUrl: string = '//phoenixdeveloper.in/backend/api/';
+
+  constructor(private http: HttpClient, public appConstants: AppConstants) { }
+
+  apiUrl = this.appConstants.baseURL;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient) { }
-
-  public generalDetails() {
-    return this.http.get(this.apiUrl+'page/generalDetails');
+  public generalDetails(): Observable<any> {
+    return this.http.get(this.apiUrl + 'page/generalDetails');
   }
 
 }

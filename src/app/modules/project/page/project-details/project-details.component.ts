@@ -31,10 +31,9 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
     maxZoom: 15,
     minZoom: 8,
   };
-  propertyAllImages : PropertyAllImages[] =[] ;
-  sample:any ;
+  propertyAllImages: PropertyAllImages[] = [];
+  sample: any;
   constructor(private route: ActivatedRoute, private projectService: ProjectService ) {}
-  
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
@@ -42,34 +41,33 @@ export class ProjectDetailsComponent implements OnInit,AfterViewInit {
         lng: 73.8567,
       };
     });
-  // let pid= this.route.snapshot.paramMap.get("id");
-   this.getProjectDetails(this.route.snapshot.paramMap.get("id"));
+
+    // let pid= this.route.snapshot.paramMap.get("id");
+    this.getProjectDetails(this.route.snapshot.paramMap.get('id'));
   }
-  ngAfterViewInit(){
+
+  ngAfterViewInit(): void{
    // this.simple.nativeElement.innerHTML =  '<p>Internal Roads - WBM</p>↵↵<p>Provision for Electricity</p>↵↵<p>Provision for Water</p> ';
   }
-  getProjectDetails(pid): any {
+  getProjectDetails(pid: any): any {
     this.projectService.getPropertyDetails(pid).subscribe((data: any[]) => {
       // if(data && data.propertyAllImages){
       // data.propertyAllImages.map((item) => {
-      //   item.img_name =
-      //     'https://www.phoenixdeveloper.in/backend/upload/property/' +
-      //     item.img_name;
+      //   item.img_name = 'https://www.phoenixdeveloper.in/backend/upload/property/' + item.img_name;
       //   return item;
       // });
-     console.log(data);
       this.projectDetails = data;
       this.project = this.projectDetails.propertyData;
-      this.propertyAllImages= this.projectDetails.propertyAllImages;   
+      this.propertyAllImages = this.projectDetails.propertyAllImages;
     });
-    
+
   }
 
-  zoomIn() {
-    if (this.zoom < this.options.maxZoom) this.zoom++;
+  zoomIn(): void {
+    if (this.zoom < this.options.maxZoom) { this.zoom++; }
   }
 
-  zoomOut() {
-    if (this.zoom > this.options.minZoom) this.zoom--;
+  zoomOut(): void {
+    if (this.zoom > this.options.minZoom) { this.zoom--; }
   }
 }

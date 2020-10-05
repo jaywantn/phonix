@@ -14,12 +14,17 @@ export class FooterComponent implements OnInit {
   google;
   linkedIn;
   extraNo;
-  ngOnInit() {
-    this.phoneNumber = this.generalData[6]['description'];
-    this.facebook = this.generalData[0]['description'];
-    this.youtube = this.generalData[3]['description'];
-    this.google = this.generalData[5]['description'];
-    this.linkedIn = this.generalData[2]['description'];
-    this.extraNo = this.generalData[2]['10'];
+
+  constructor() {}
+
+  ngOnInit(): void {
+    if (this.generalData) {
+      this.facebook = this.generalData[0].description;
+      this.google = this.generalData[5].description;
+      this.phoneNumber = this.generalData[6].description;
+      this.youtube = this.generalData[3].description;
+      this.linkedIn = this.generalData[2].description;
+      this.extraNo = this.generalData[9].description;
+    }
   }
 }

@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ConfigService } from './config.service';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AppConstants } from './app.constants';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FormsModule, ReactiveFormsModule,
     ModalModule.forRoot()
   ],
-  providers: [ConfigService],
+  providers: [ConfigService, AppConstants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

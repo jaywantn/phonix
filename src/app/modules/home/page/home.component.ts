@@ -1,44 +1,56 @@
 import { Component, OnInit } from '@angular/core';
+import { AppConstants } from 'src/app/app.constants';
 import { HomeService } from '../home.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-   locationList;
-   typeList;
-   projectList;
-   loading;
-  constructor(
-    private myService: HomeService
-  ) { }
 
-  ngOnInit() {
+export class HomeComponent implements OnInit {
+  banner: any = [];
+  locationList: any;
+  typeList: any;
+  projectList: any;
+  loading: any;
+
+  constructor(private myService: HomeService, public appConstants: AppConstants) { }
+
+  ngOnInit(): void {
+    this.getBanner();
     this.getLocation();
     this.getPropertyType();
     this.getPropertyList();
   }
-  getLocation() {
+  getLocation(): void {
     this.myService.getLocation().subscribe((data: any[]) => {
       this.locationList = data;
     });
   }
-  getPropertyType() {
+  getPropertyType(): void {
     this.myService.getPropertyType().subscribe((data: any[]) => {
       console.log(data);
       this.typeList = data;
     });
   }
 
-  getPropertyList() {
+  getPropertyList(): void {
     this.myService.getPropertyList().subscribe((data: any[]) => {
       data.map((item) => {
-        item.img = '//phoenixdeveloper.in/backend/upload/property/' + item.img;
+        item.img = this.appConstants.bannerURL + 'property/' + item.img;
         return item;
       });
       this.projectList = data;
-      console.log('projectList', this.projectList);
+    });
+  }
+
+  getBanner(): void {
+    this.myService.getBanner().subscribe((data: any[]) => {
+      data.map((item) => {
+        item.banner_image = this.appConstants.bannerURL + 'banner/' + item.banner_image;
+        return item;
+      });
+      this.banner = data;
     });
   }
 }
