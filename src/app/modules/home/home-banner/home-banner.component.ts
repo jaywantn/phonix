@@ -25,12 +25,12 @@ export class HomeBannerComponent implements OnInit {
     this.myService.getBanner().subscribe((data: any[]) => {
       data.map((item) => {
         item.banner_image =
-          'https://www.phoenixdeveloper.in/backend/upload/banner/' +
+          '//phoenixdeveloper.in/backend/upload/banner/' +
           item.banner_image;
         return item;
       });
       this.banner = data;
       console.log('banner', this.banner);
     });
-  }  
+  }
 }

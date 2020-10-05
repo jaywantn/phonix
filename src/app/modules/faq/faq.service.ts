@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class FaqService {
-  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/page/faq';
+  apiUrl: string = '//phoenixdeveloper.in/backend/api/page/faq';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }

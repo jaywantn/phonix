@@ -22,7 +22,7 @@ export class ProjectComponent implements OnInit {
     this.projectService.getPropertyList().subscribe((data: any[]) => {
       data.map((item) => {
         item.img =
-          'https://www.phoenixdeveloper.in/backend/upload/property/' +
+          '//phoenixdeveloper.in/backend/upload/property/' +
           item.img;
         return item;
       });

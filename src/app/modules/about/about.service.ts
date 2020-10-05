@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AboutService {
-  apiUrl: string = 'http://phoenixdeveloper.in/backend/api/page/aboutus';
+  apiUrl: string = '//phoenixdeveloper.in/backend/api/page/aboutus';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }

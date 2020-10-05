@@ -1,124 +1,110 @@
 <div class="page-title-container">
-  <div class="container" *ngIf="project">
-    <div class="page-title pull-left">
-      <h2 class="entry-title">{{project.title}}</h2>
+    <div class="container" *ngIf="project">
+        <div class="page-title pull-left">
+            <h2 class="entry-title">{{project.title}}</h2>
+        </div>
+        <ul class="breadcrumbs pull-right">
+            <li><a routerLink="/home">HOME</a></li>
+            <li class="active">Porject Details</li>
+        </ul>
     </div>
-    <ul class="breadcrumbs pull-right">
-      <li><a routerLink="/home">HOME</a></li>
-      <li class="active">Porject Details</li>
-    </ul>
-  </div>
 </div>
 <section id="content" *ngIf="project">
-  <div class="container flight-detail-page">
-    <div class="row">
-      <div id="main" class="col-md-9">
-        <div class="tab-container style1 box" id="flight-main-content">
-          <div class="tab-content">
-            <div id="photo-tab" class="tab-pane fade in active">
-              <div class="featured-image image-container">
-                <carousel>
-                  <slide *ngFor="let post of propertyAllImages; let i = index;">
-                      <img src="https://www.phoenixdeveloper.in/backend/upload/property/{{post.img_name}}" alt="i" style="display: block; width: 100%; max-height: 500px;">
-                  </slide>
-              </carousel>
-              
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="container flight-detail-page">
+        <div class="row">
+            <div id="main" class="col-md-9">
+                <div class="tab-container style1 box" id="flight-main-content">
+                    <div class="tab-content">
+                        <div id="photo-tab" class="tab-pane fade in active">
+                            <div class="featured-image image-container">
+                                <carousel>
+                                    <slide *ngFor="let post of propertyAllImages; let i = index;">
+                                        <img src="//phoenixdeveloper.in/backend/upload/property/{{post.img_name}}" alt="i" style="display: block; width: 100%; max-height: 500px;">
+                                    </slide>
+                                </carousel>
 
-        <div id="flight-features" class="tab-container">
-          <ul class="tabs">
-            <li class="active">
-              <a href="#property-details" data-toggle="tab">Overview</a>
-            </li>
-            <li>
-              <a href="#property-features" data-toggle="tab">Features</a>
-            </li>
-            <li>
-              <a href="#property-document" data-toggle="tab">Document</a>
-            </li>
-            <li>
-              <a href="#layout" data-toggle="tab">Layout</a>
-            </li>
-            <li> <a href="#googleMap" data-toggle="tab">Google Map</a></li>
-            <li> <a href="#video" data-toggle="tab">Video</a></li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="property-details">
-              <div class="long-description">
-                <h2>About Project</h2>
-                <div [innerHtml]="project.overview | safeHtml: 'html'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-              </div>
-            </div>
-            <div class="tab-pane fade" id="property-features">
-              <h2>Features </h2>
-              <div  [innerHtml]="project.features | safeHtml: 'html'"></div>
-              
-            </div>
-            <div class="tab-pane fade" id="property-document">
-              <h2>Document</h2>
-              <p>
-                Would you like a window seat or treat yourself to more comfort?
-                Select your seats online in advance with our easy-to-use seat
-                map. You can choose and change your seat until 48 hours before
-                departure, when booking on Travelo.com. Also you can choose and
-                change your seats at a self-service machine at the airport.
-              </p>
-           
-            </div>
-            <div class="tab-pane fade" id="layout">
-              <h2>Layout</h2>
-              <p>
-                In this section you'll find information on baggage allowances,
-                special equipment and sports items as well as restricted items.
-                We've also included some tips to make your trip more enjoyable.
-              </p>
-             
+                <div id="flight-features" class="tab-container">
+                    <ul class="tabs">
+                        <li class="active">
+                            <a href="#property-details" data-toggle="tab">Overview</a>
+                        </li>
+                        <li>
+                            <a href="#property-features" data-toggle="tab">Features</a>
+                        </li>
+                        <li>
+                            <a href="#property-document" data-toggle="tab">Document</a>
+                        </li>
+                        <li>
+                            <a href="#layout" data-toggle="tab">Layout</a>
+                        </li>
+                        <li> <a href="#googleMap" data-toggle="tab">Google Map</a></li>
+                        <li> <a href="#video" data-toggle="tab">Video</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="property-details">
+                            <div class="long-description">
+                                <h2>About Project</h2>
+                                <div [innerHtml]="project.overview | safeHtml: 'html'"></div>
 
-              <hr />
-              
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="property-features">
+                            <h2>Features </h2>
+                            <div [innerHtml]="project.features | safeHtml: 'html'"></div>
+
+                        </div>
+                        <div class="tab-pane fade" id="property-document">
+                            <h2>Document</h2>
+                            <p>
+                                Would you like a window seat or treat yourself to more comfort? Select your seats online in advance with our easy-to-use seat map. You can choose and change your seat until 48 hours before departure, when booking on Travelo.com. Also you can choose and
+                                change your seats at a self-service machine at the airport.
+                            </p>
+
+                        </div>
+                        <div class="tab-pane fade" id="layout">
+                            <h2>Layout</h2>
+                            <p>
+                                In this section you'll find information on baggage allowances, special equipment and sports items as well as restricted items. We've also included some tips to make your trip more enjoyable.
+                            </p>
+
+
+                            <hr />
+
+                        </div>
+                        <div class="tab-pane fade" id="googleMap">
+                            <h2>Map</h2>
+                            <google-map height="300px" width="100%" [zoom]="zoom" [center]="center" [options]="options"></google-map>
+                        </div>
+                        <div class="tab-pane fade" id="video">
+                            <h2>Video</h2>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/li73hE4AtRc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="googleMap">
-              <h2>Map</h2>
-              <google-map
-              height="300px"
-              width="100%"
-              [zoom]="zoom"
-              [center]="center"
-              [options]="options"
-            ></google-map>
-            </div>
-            <div class="tab-pane fade" id="video">
-              <h2>Video</h2>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/li73hE4AtRc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="sidebar col-md-3">
-        <article class="detailed-logo">
-          <figure>
-            <img src="https://www.phoenixdeveloper.in/backend/upload/property/{{project.img}}" alt="" />
-          </figure>
-          <div class="details">
-            <h2 class="box-title">
-              {{project.title}}
-            </h2>
-            <span class="price clearfix">
+            <div class="sidebar col-md-3">
+                <article class="detailed-logo">
+                    <figure>
+                        <img src="https://www.phoenixdeveloper.in/backend/upload/property/{{project.img}}" alt="" />
+                    </figure>
+                    <div class="details">
+                        <h2 class="box-title">
+                            {{project.title}}
+                        </h2>
+                        <span class="price clearfix">
               <small class="pull-left">Per Square</small>
               <span class="pull-right">140/-</span>
-            </span>
+                        </span>
 
-            <p class="description" [innerHtml]="project.intro | safeHtml: 'html'">
-      
-            </p>
-            <a
-              routerLink="/project/enquiry/{{projectDetails.propertyData.pid}}"
-              class="button green full-width uppercase btn-medium"
-              >Inquiry Now</a
+                        <p class="description" [innerHtml]="project.intro | safeHtml: 'html'">
+
+                        </p>
+                        <a routerLink="/project/enquiry/{{projectDetails.propertyData.pid}}" class="button green full-width uppercase btn-medium">Inquiry Now</a
             >
           </div>
         </article>
@@ -134,29 +120,29 @@
             >
             <br />
             <a class="contact-email" href="mailto:help@phoenixdeveloper.in?subject=Property Enquiry">help@phoenixdeveloper.in</a>
-          </address>
+                        </address>
+                    </div>
+                    <div class="travelo-box book-with-us-box">
+                        <h4>Why Book with us?</h4>
+                        <ul>
+                            <li>
+                                <i class="soap-icon-hotel-1 circle"></i>
+                                <h5 class="title"><a>5,00+ Property</a></h5>
+                                <p> 5000+ verified properties & still counting. Maximum options for Buyers to search New Homes.</p>
+                            </li>
+                            <li>
+                                <i class="soap-icon-savings circle"></i>
+                                <h5 class="title"><a>High Visibility</a></h5>
+                                <p>More than 40,000+ views for Homes Or Properties.</p>
+                            </li>
+                            <li>
+                                <i class="soap-icon-support circle"></i>
+                                <h5 class="title"><a>Excellent Support</a></h5>
+                                <p> Get in touch with Sellers within NO TIME. Buyers stay away from fake Dealers.</p>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
         </div>
-        <div class="travelo-box book-with-us-box">
-          <h4>Why Book with us?</h4>
-          <ul>
-            <li>
-              <i class="soap-icon-hotel-1 circle"></i>
-              <h5 class="title"><a >5,00+ Property</a></h5>
-              <p> 5000+ verified properties & still counting. Maximum options for Buyers to search New Homes.</p>
-            </li>
-            <li>
-              <i class="soap-icon-savings circle"></i>
-              <h5 class="title"><a >High Visibility</a></h5>
-              <p>More than 40,000+ views for Homes Or Properties.</p>
-            </li>
-            <li>
-              <i class="soap-icon-support circle"></i>
-              <h5 class="title"><a >Excellent Support</a></h5>
-              <p> Get in touch with Sellers within NO TIME. Buyers stay away from fake Dealers.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </div>
 </section>

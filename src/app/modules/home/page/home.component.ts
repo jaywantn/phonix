@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   getPropertyList() {
     this.myService.getPropertyList().subscribe((data: any[]) => {
       data.map((item) => {
-        item.img = 'https://www.phoenixdeveloper.in/backend/upload/property/' + item.img;
+        item.img = '//phoenixdeveloper.in/backend/upload/property/' + item.img;
         return item;
       });
       this.projectList = data;

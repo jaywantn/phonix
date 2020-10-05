@@ -23,10 +23,10 @@ export class NewsDetailsComponent implements OnInit {
     });
   }
   getList() {
-    this.newsService.getList().subscribe((data: any) => { 
+    this.newsService.getList().subscribe((data: any) => {
       data.map((item) => {
         item.image =
-          'https://www.phoenixdeveloper.in/backend/upload/news/' +
+          '//phoenixdeveloper.in/backend/upload/news/' +
           item.image;
         return item;
       });

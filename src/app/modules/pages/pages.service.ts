@@ -7,9 +7,9 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class PagesService {
-  apiUrl: string = 'https://phoenixdeveloper.in/backend/api/';
+  apiUrl: string = '//phoenixdeveloper.in/backend/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-  
+
   constructor(private http: HttpClient) { }
 
   public getPolicy() {
@@ -18,7 +18,7 @@ export class PagesService {
   public getTerm() {
     return this.http.get(this.apiUrl+'page/termCondition');
   }
-  
+
   public getGallery() {
     return this.http.get(this.apiUrl+'gallery');
   }
