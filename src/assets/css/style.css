@@ -1903,9 +1903,9 @@ select option {
 /* 2.1.4. Form */
 
 form label {
-    text-transform: uppercase;
+    text-transform: capitalize;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-weight: normal;
     font-size: 0.9167em;
 }
@@ -5970,6 +5970,7 @@ ul.check-circle li:before {
     font-size: 1em;
     text-align: center;
     letter-spacing: 0.04em;
+    text-transform: capitalize;
 }
 
 .listing-style1.car figure img {
@@ -10352,7 +10353,7 @@ ul.search-tabs li.active a {
 }
 
 .search-tab-content h4.title {
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
     height: 20px;
 }
 

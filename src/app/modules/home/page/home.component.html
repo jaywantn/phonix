@@ -16,19 +16,19 @@
                                 <div class="col-sm-12 col-md-12">
                                     <h4 class="title">Find Property</h4>
                                 </div>
-                                <div class="col-sm-12 col-md-5">
+                                <div class="col-sm-12 col-md-5 padding-bottom-20">
                                     <label>Location</label>
                                     <select class="full-width" name="location">
                                       <option *ngFor="let location of locationList" [value]="location.lc_id" >{{location.lc_name}}</option>
                                   </select>
                                 </div>
-                                <div class="col-sm-12 col-md-5">
+                                <div class="col-sm-12 col-md-5 padding-bottom-20">
                                     <label>Property Type</label>
                                     <select class="full-width" name="type">
                                     <option  *ngFor="let typeP of typeList" [value]="typeP.pt_id" >{{typeP.pt_name}}</option>
                                 </select>
                                 </div>
-                                <div class="col-sm-12 col-md-2 fixheight">
+                                <div class="col-sm-12 col-md-2 fixheight padding-bottom-20">
                                     <label class="hidden-xs">&nbsp;</label>
                                     <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1">SEARCH NOW</button>
                                 </div>
