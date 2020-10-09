@@ -15,6 +15,8 @@ export class LoadingService {
   }
 
   public hideLoader(): void {
-    this.isLoaderShown.next(false);
+    setTimeout (() => {
+      this.isLoaderShown.next(false);
+   }, 4000);
   }
 }
