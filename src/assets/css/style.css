@@ -5967,7 +5967,7 @@ ul.check-circle li:before {
 }
 
 .listing-style1.flight .details .duration {
-    font-size: 1em;
+    font-size: 0.8em;
     text-align: center;
     letter-spacing: 0.04em;
     text-transform: capitalize;
@@ -6029,7 +6029,7 @@ ul.check-circle li:before {
 .listing-style2.flight.box,
 .listing-style2.car .box,
 .listing-style2.car.box {
-    padding: 15px;
+    padding: 0px 0px 15px 0px;
 }
 
 .listing-style1.flight figure,
@@ -10342,6 +10342,7 @@ ul.search-tabs li.active a {
 
 .search-tab-content {
     padding: 30px 0;
+    margin-top: 60px;
 }
 
 .search-tab-content .tab-pane {
@@ -10353,7 +10354,7 @@ ul.search-tabs li.active a {
 }
 
 .search-tab-content h4.title {
-    margin: 10px 0 20px 0;
+    margin: 6px 0 20px 0;
     height: 20px;
 }
 

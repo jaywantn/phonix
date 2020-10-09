@@ -2,9 +2,11 @@
     <slide *ngFor="let post of banner; let i = index;">
         <a href="{{post.banner_link}}">
             <img src="{{post.banner_image}}" alt="first slide" class="image-slider">
+            <img src="{{post.mobile_banner_image}}" alt="first slide" class="mobile-image-slider">
         </a>
     </slide>
 </carousel>
+<div class="clearfix"></div>
 <section id="content">
     <div class="search-box-wrapper">
         <div class="search-box container">
@@ -13,23 +15,24 @@
                     <form action="hotel-list-view.html" method="post">
                         <div class="row">
                             <div class="form-group">
-                                <div class="col-sm-12 col-md-12">
+                                <div class="col-sm-12 col-md-2 padding-bottom-20">
                                     <h4 class="title">Find Property</h4>
                                 </div>
-                                <div class="col-sm-12 col-md-5 padding-bottom-20">
-                                    <label>Location</label>
+                                <div class="col-sm-12 col-md-4 padding-bottom-20">
+                                    <!-- <label>Location</label> -->
                                     <select class="full-width" name="location">
+                                      <option value="">Location</option>
                                       <option *ngFor="let location of locationList" [value]="location.lc_id" >{{location.lc_name}}</option>
-                                  </select>
+                                    </select>
                                 </div>
-                                <div class="col-sm-12 col-md-5 padding-bottom-20">
-                                    <label>Property Type</label>
+                                <div class="col-sm-12 col-md-4 padding-bottom-20">
+                                    <!-- <label>Property Type</label> -->
                                     <select class="full-width" name="type">
-                                    <option  *ngFor="let typeP of typeList" [value]="typeP.pt_id" >{{typeP.pt_name}}</option>
-                                </select>
+                                      <option value="">Property Type</option>
+                                      <option  *ngFor="let typeP of typeList" [value]="typeP.pt_id" >{{typeP.pt_name}}</option>
+                                    </select>
                                 </div>
                                 <div class="col-sm-12 col-md-2 fixheight padding-bottom-20">
-                                    <label class="hidden-xs">&nbsp;</label>
                                     <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1">SEARCH NOW</button>
                                 </div>
                             </div>
@@ -40,10 +43,12 @@
         </div>
     </div>
 
-    <div class="container section">
-        <h2>Best Property Offers</h2>
+    <div class="container section offers-box">
+        <div class="inline-block width-100 text-center">
+            <h2 class="offers-box-headline">Best Property Offers</h2>
+        </div>
         <div class="row image-box listing-style1 flight">
-            <div class="col-sm-6 col-md-4" *ngFor="let group of projectList">
+            <div class="col-sm-6 col-md-3" *ngFor="let group of projectList">
                 <article class="box">
                     <figure class="" data-animation-type="fadeInDown">
                         <span><img alt="{{group.title}}" src="{{group.img}}" style="height:180px"></span>
@@ -51,12 +56,11 @@
                     <div class="details">
                         <h4 class="box-title">{{group.title}}<small> Pune</small></h4>
 
-                        <p class="duration fourty-space">Plot size : 2700 — 5500 sq ft</p>
-                        <p class="duration fourty-space">Collector Sanctioned</p>
-                        <p class="duration fourty-space">Residential Plots with 4 side Wall </p>
+                        <p class="duration fourty-space">Plot size : {{group.seq}} sq ft</p>
+                        <p class="duration fourty-space">{{group.pt_name}}</p>
                         <p class="duration fourty-space">7-12 : Separate Extract for Each Plot</p>
                         <div class="action">
-                            <a class="button btn-small full-width" routerLink="/project/details/{{group.pid}}">More Details</a>
+                            <a class="button btn-small full-width" routerLink="/project/details/{{group.pid}}">Know More <i class="soap-icon-longarrow-right"></i></a>
                         </div>
                     </div>
                 </article>

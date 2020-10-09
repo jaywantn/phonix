@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
         return item;
       });
       this.projectList = data;
+      console.log(this.projectList);
     });
   }
 
@@ -48,9 +49,11 @@ export class HomeComponent implements OnInit {
     this.myService.getBanner().subscribe((data: any[]) => {
       data.map((item) => {
         item.banner_image = this.appConstants.bannerURL + 'banner/' + item.banner_image;
+        item.mobile_banner_image = this.appConstants.bannerURL + 'banner/' + item.mobile_banner_image;
         return item;
       });
       this.banner = data;
+      console.log(this.banner);
     });
   }
 }
