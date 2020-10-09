@@ -1572,7 +1572,7 @@ article {
 .box-title small {
     font-size: 12px;
     color: #838383;
-    text-transform: uppercase;
+    text-transform: capitalize;
     display: block;
     margin-top: 8px;
 }

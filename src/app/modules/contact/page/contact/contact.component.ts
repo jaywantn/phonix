@@ -65,7 +65,6 @@ export class ContactComponent implements OnInit {
     if (this.contactForm.invalid) {
         return;
     }
-    console.log(this.contactForm.value);
     this.contactService.sendPostRequest(this.contactForm.value).subscribe(
       res => {
         if (res === 'success'){

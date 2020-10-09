@@ -26,6 +26,5 @@ export class FooterComponent implements OnInit {
       this.linkedIn = this.generalData[2].description;
       this.extraNo = this.generalData[9].description;
     }
-    console.log(this.generalData);
   }
 }

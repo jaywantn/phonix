@@ -36,12 +36,19 @@ export class HomeComponent implements OnInit {
 
   getPropertyList(): void {
     this.myService.getPropertyList().subscribe((data: any[]) => {
-      data.map((item) => {
-        item.img = this.appConstants.bannerURL + 'property/' + item.img;
-        return item;
+      this.myService.getLocation().subscribe((dataList: any[]) => {
+        this.locationList = dataList;
+        data.map((item) => {
+          this.locationList.forEach(element => {
+            if (element.lc_id === item.plocationdistrict) {
+              item.plocationdistrict = element.lc_name;
+            }
+          });
+          item.img = this.appConstants.bannerURL + 'property/' + item.img;
+          return item;
+        });
+        this.projectList = data;
       });
-      this.projectList = data;
-      console.log(this.projectList);
     });
   }
 

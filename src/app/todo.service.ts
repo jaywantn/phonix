@@ -32,8 +32,8 @@ export class TodoService {
     }),
     catchError(this.handleError));
   }
-    handleError(handleError: any): import("rxjs").OperatorFunction<any[], any> {
-        throw new Error("Method not implemented.");
+    handleError(handleError: any): import('rxjs').OperatorFunction<any[], any> {
+        throw new Error('Method not implemented.');
     }
   loadAll() {
     this.http.get<Todo[]>(`${this.baseUrl}/todos`).subscribe(data => {
@@ -44,8 +44,6 @@ export class TodoService {
 
   loadBanner() {
     this.http.get(`${this.propertyUrl}`).subscribe(data => {
-
-      //  console.log(data);
       return data;
     }, error => console.log('Could not load todos.'));
   }

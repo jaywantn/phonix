@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../news.service';
 import { ActivatedRoute } from '@angular/router';
+import { AppConstants } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-news-details',
@@ -8,26 +9,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./news-details.component.css']
 })
 export class NewsDetailsComponent implements OnInit {
-  newsDetails : any;
-  newList =[];
-  constructor(private newsService: NewsService,
-    private route: ActivatedRoute) { }
+  newsDetails: any;
+  newList = [];
+  constructor(
+    private newsService: NewsService,
+    private route: ActivatedRoute,
+    public appConstants: AppConstants) { }
 
   ngOnInit(): void {
-    this.getNewsDetails(this.route.snapshot.paramMap.get("id"));
+    this.getNewsDetails(this.route.snapshot.paramMap.get('id'));
     this.getList();
   }
+
   getNewsDetails(nid): any {
     this.newsService.getDetails(nid).subscribe((data: any[]) => {
       this.newsDetails = data;
     });
   }
-  getList() {
+
+  getList(): void {
     this.newsService.getList().subscribe((data: any) => {
       data.map((item) => {
-        item.image =
-          '//phoenixdeveloper.in/backend/upload/news/' +
-          item.image;
+        item.image = this.appConstants.bannerURL + 'news/' + item.image;
         return item;
       });
       this.newList = data;
