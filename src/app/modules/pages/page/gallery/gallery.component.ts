@@ -3,6 +3,7 @@ import { Gallery, GalleryItem, ImageItem, ThumbnailsPosition, ImageSize } from '
 import { PagesService } from '../../pages.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { AppConstants } from 'src/app/app.constants';
+import { LoadingService } from 'src/app/core/service/loading.service';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -18,16 +19,17 @@ export class GalleryComponent implements OnInit {
     public gallery: Gallery,
     private titleService: Title,
     private meta: Meta,
+    private loaderService: LoadingService,
     public appConstants: AppConstants) { }
 
   ngOnInit(): void {
     this.getGallery();
   }
   getGallery(): void {
+    this.loaderService.showLoader();
     this.pagesService.getGallery().subscribe((data: any[]) => {
       this.galleryList = data;
       this.imageList = this.galleryList.galleryList;
-
       // 1. Create gallery items
       this.items = this.imageList.map(item =>
         new ImageItem({
@@ -52,7 +54,7 @@ export class GalleryComponent implements OnInit {
 
       // 3. Load the items into the lightbox
       lightboxGalleryRef.load(this.items);
-
+      this.loaderService.hideLoader();
       this.seoDetails = this.galleryList.seo;
       this.seoGenerate();
     });

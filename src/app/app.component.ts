@@ -1,8 +1,9 @@
 import { ConfigService } from './config.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, NavigationStart, NavigationCancel, NavigationError } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
+import { LoadingService } from './core/service/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,28 @@ import { filter } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   generalDetails: any = [];
   isLoading: boolean;
+  showLoader = false;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
+    private loaderService: LoadingService,
     private configService: ConfigService) { }
 
   ngOnInit(): void {
+    this.loaderService.isLoaderShown.subscribe(isLoaderShown => this.showLoader = isLoaderShown);
+    this.router.events.subscribe(routerEvent => {
+      if (routerEvent instanceof NavigationStart) {
+        this.loaderService.showLoader();
+      } else if (routerEvent instanceof NavigationEnd) {
+        this.loaderService.hideLoader();
+      } else if (routerEvent instanceof NavigationCancel) {
+        this.loaderService.hideLoader();
+      } else if (routerEvent instanceof NavigationError) {
+        this.loaderService.hideLoader();
+      }
+    });
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
     )

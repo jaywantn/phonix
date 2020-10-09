@@ -17,6 +17,6 @@ import { GoogleMapsModule } from '@angular/google-maps';
     SafeHtmlPipe
   ],
   imports: [CommonModule, ProjectRoutingModule, ReactiveFormsModule, CarouselModule, GoogleMapsModule],
-  providers :[ProjectService]
+  providers: [ProjectService]
 })
 export class ProjectModule {}

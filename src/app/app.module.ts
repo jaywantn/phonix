@@ -1,3 +1,4 @@
+import { LoadingService } from './core/service/loading.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,11 +13,13 @@ import { ConfigService } from './config.service';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppConstants } from './app.constants';
+import { LoaderComponentComponent } from './modules/loader-component/loader-component.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,11 @@ import { AppConstants } from './app.constants';
     FormsModule, ReactiveFormsModule,
     ModalModule.forRoot()
   ],
-  providers: [ConfigService, AppConstants],
+  providers: [
+    ConfigService,
+    AppConstants,
+    LoadingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

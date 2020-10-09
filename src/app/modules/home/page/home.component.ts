@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppConstants } from 'src/app/app.constants';
+import { LoadingService } from 'src/app/core/service/loading.service';
 import { HomeService } from '../home.service';
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   projectList: any;
   loading: any;
 
-  constructor(private myService: HomeService, public appConstants: AppConstants) { }
+  constructor(private myService: HomeService, private loaderService: LoadingService, public appConstants: AppConstants) { }
 
   ngOnInit(): void {
     this.getBanner();
@@ -23,18 +24,22 @@ export class HomeComponent implements OnInit {
     this.getPropertyList();
   }
   getLocation(): void {
+    this.loaderService.showLoader();
     this.myService.getLocation().subscribe((data: any[]) => {
       this.locationList = data;
+      this.loaderService.hideLoader();
     });
   }
   getPropertyType(): void {
+    this.loaderService.showLoader();
     this.myService.getPropertyType().subscribe((data: any[]) => {
-      console.log(data);
       this.typeList = data;
+      this.loaderService.hideLoader();
     });
   }
 
   getPropertyList(): void {
+    this.loaderService.showLoader();
     this.myService.getPropertyList().subscribe((data: any[]) => {
       this.myService.getLocation().subscribe((dataList: any[]) => {
         this.locationList = dataList;
@@ -48,6 +53,7 @@ export class HomeComponent implements OnInit {
           return item;
         });
         this.projectList = data;
+        this.loaderService.hideLoader();
       });
     });
   }
