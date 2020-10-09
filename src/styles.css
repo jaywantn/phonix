@@ -112,6 +112,7 @@ gallery {
     margin: 0 auto;
     display: inline-block;
     text-transform: capitalize;
+    text-align: center;
 }
 
 .enquiery-now a {
