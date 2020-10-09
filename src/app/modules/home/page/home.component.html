@@ -1,4 +1,4 @@
-<carousel *ngIf="banner">
+<carousel *ngIf="banner" [isAnimated]="true" class="home-banner">
     <slide *ngFor="let post of banner; let i = index;">
         <a href="{{post.banner_link}}">
             <img src="{{post.banner_image}}" alt="first slide" class="image-slider">
@@ -51,16 +51,17 @@
             <div class="col-sm-6 col-md-3" *ngFor="let group of projectList">
                 <article class="box">
                     <figure class="" data-animation-type="fadeInDown">
-                        <span><img alt="{{group.title}}" src="{{group.img}}" style="height:180px"></span>
+                        <span class="hover-effect">
+                          <img alt="{{group.title}}" src="{{group.img}}" style="height:180px">
+                        </span>
                     </figure>
                     <div class="details">
                         <h4 class="box-title">{{group.title}}<small> Pune</small></h4>
-
                         <p class="duration fourty-space">Plot size : {{group.seq}} sq ft</p>
                         <p class="duration fourty-space">{{group.pt_name}}</p>
                         <p class="duration fourty-space">7-12 : Separate Extract for Each Plot</p>
                         <div class="action">
-                            <a class="button btn-small full-width" routerLink="/project/details/{{group.pid}}">Know More <i class="soap-icon-longarrow-right"></i></a>
+                            <a class="button btn-medium" routerLink="/project/details/{{group.pid}}">Know More <i class="soap-icon-longarrow-right"></i></a>
                         </div>
                     </div>
                 </article>
@@ -70,66 +71,48 @@
         </div>
     </div>
 
-    <!--<div class="global-map-area mobile-section parallax" data-stellar-background-ratio="0.5">
-      <div class="container">
-          <div class="table-wrapper hidden-table-sm">
-              <div class="col-md-6 description section table-cell">
-                  <h1>Take Travelo With You Wherever You Go!</h1>
-                  <div class="review clearfix">
-                      <div class="five-stars-container pull-left"><div class="five-stars transparent-bg" style="width: 100%;"></div></div>
-                      &nbsp;&nbsp;&nbsp;<label><small class="white-color uppercase">455 user ratings</small></label>
-                  </div>
-                  <br>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-
-                  <a class="button btn-extra blue"><i class="soap-icon-apple"></i><span>Download from<br><em>apple store</em></span></a>
-                  <a class="button btn-extra yellow"><i class="soap-icon-googleplay"></i><span>Download from<br><em>google play</em></span></a>
-              </div>
-              <div class="col-md-6 image-wrapper table-cell hidden-sm">
-                  <img src="http://placehold.it/594x417" alt="" class="animated" data-animation-type="fadeInUp">
-              </div>
-          </div>
-      </div>
-  </div> -->
-
-    <div class="global-map-area section parallax">
-        <div class="container description">
-            <h1 class="text-center box">Why Phoenix Land Developers</h1>
-            <div class="row">
-                <div class="col-xs-12 col-sm-3">
-                    <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="0">
-                        <i class="soap-icon-hotel"></i>
-                        <h4 class="box-title">5,000+ Property</h4>
-                        <p class="description">
-                            5000+ verified properties & still counting. Maximum options for Buyers to search New Homes.
-                        </p>
-                    </div>
+    <div class="global-map-area parallax">
+        <div class="section background-color">
+            <div class="container description">
+                <div class="inline-block width-100 text-center">
+                    <h2 class="text-center box padding-bottom-20 margin-bottom-60" style="border-bottom: 2px solid; width: auto; display: inline-block;">Why Phoenix Land Developers</h2>
                 </div>
-                <div class="col-xs-12 col-sm-3">
-                    <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="0.6">
-                        <i class="soap-icon-insurance"></i>
-                        <h4 class="box-title">High Visibility</h4>
-                        <p class="description">
-                            More than 40,000+ views for Homes Or Properties.
-                        </p>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="0">
+                            <i class="soap-icon-hotel"></i>
+                            <h4 class="box-title padding-top-10 padding-bottom-10">5,000+ Property</h4>
+                            <p class="description">
+                                5000+ verified properties & still counting. Maximum options for Buyers to search New Homes.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-3">
-                    <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="0.9">
-                        <i class="soap-icon-star-1"></i>
-                        <h4 class="box-title">Diverse Locality</h4>
-                        <p class="description">
-                            Search properties in more than 300+ localities. Buyers can search Properties in different localities
-                        </p>
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="0.6">
+                            <i class="soap-icon-insurance"></i>
+                            <h4 class="box-title padding-top-10 padding-bottom-10">High Visibility</h4>
+                            <p class="description">
+                                More than 40,000+ views for Homes Or Properties.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-3">
-                    <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="1.2">
-                        <i class="soap-icon-support"></i>
-                        <h4 class="box-title">Direct Seller Contact</h4>
-                        <p class="description">
-                            Get in touch with Sellers within NO TIME. Buyers stay away from fake Dealers.
-                        </p>
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="0.9">
+                            <i class="soap-icon-star-1"></i>
+                            <h4 class="box-title padding-top-10 padding-bottom-10">Diverse Locality</h4>
+                            <p class="description">
+                                Search properties in more than 300+ localities. Buyers can search Properties in different localities
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="icon-box style8 animated" data-animation-type="slideInUp" data-animation-delay="1.2">
+                            <i class="soap-icon-support"></i>
+                            <h4 class="box-title padding-top-10 padding-bottom-10">Direct Seller Contact</h4>
+                            <p class="description">
+                                Get in touch with Sellers within NO TIME. Buyers stay away from fake Dealers.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

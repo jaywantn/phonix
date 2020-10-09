@@ -1570,12 +1570,11 @@ article {
 }
 
 .box-title small {
-    font-size: 10px;
+    font-size: 12px;
     color: #838383;
     text-transform: uppercase;
     display: block;
-    margin-top: 4px;
-    /*letter-spacing: normal;*/
+    margin-top: 8px;
 }
 
 .box-title small [class^="soap-icon"] {
@@ -2806,7 +2805,7 @@ blockquote.style2:after {
     -moz-opacity: 0;
     -khtml-opacity: 0;
     opacity: 0;
-    background-color: rgba(1, 183, 242, 0.6);
+    background-color: rgba(185, 101, 3, 0.6);
 }
 
 .hover-effect img {
@@ -4079,7 +4078,7 @@ ul.check-circle li:before {
 }
 
 .tab-container .tab-content .tab-pane {
-    padding: 20px;
+    padding: 10px;
     line-height: 1.7em;
 }
 
@@ -4102,6 +4101,9 @@ ul.check-circle li:before {
 
 .tab-container .tab-content .tab-pane .image-box .details {
     padding-right: 0;
+    display: inline-block;
+    width: 74%;
+    vertical-align: middle;
 }
 
 .tab-container.style1 ul.tabs {
@@ -5428,13 +5430,13 @@ ul.check-circle li:before {
 }
 
 .image-box.style14 figure {
-    float: left;
-    width: 63px;
+    display: inline-block;
+    width: 25%;
+    vertical-align: middle;
 }
 
 .image-box.style14 .details {
-    margin-left: 63px;
-    padding: 15px 15px 0;
+    padding: 10px 0px 10px 0px;
 }
 
 .image-box.style14 .price {
@@ -5520,6 +5522,9 @@ ul.check-circle li:before {
     border: none;
     margin-bottom: 0;
     padding-bottom: 0;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 
@@ -5902,7 +5907,7 @@ ul.check-circle li:before {
 
 .listing-style1.flight .details,
 .listing-style1.car .details {
-    padding: 15px 0 0 !important;
+    padding: 15px 15px 0px !important;
     text-transform: uppercase;
 }
 
@@ -5967,7 +5972,7 @@ ul.check-circle li:before {
 }
 
 .listing-style1.flight .details .duration {
-    font-size: 0.8em;
+    font-size: 1em;
     text-align: center;
     letter-spacing: 0.04em;
     text-transform: capitalize;
@@ -6787,7 +6792,7 @@ ul.check-circle li:before {
 
 .blog-infinite .post .entry-title,
 .single .post .entry-title {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .blog-infinite .post .excerpt-container,
@@ -10262,11 +10267,11 @@ ul.menu.mini li.active a {
 /* 4.1. Default Style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .search-box-wrapper {
-    background: #fff;
+    background: #d9d9d9;
 }
 
 .search-box {
-    margin-top: -80px;
+    margin-top: -40px;
     position: relative;
     z-index: 99;
 }
@@ -10341,8 +10346,7 @@ ul.search-tabs li.active a {
 }
 
 .search-tab-content {
-    padding: 30px 0;
-    margin-top: 60px;
+    padding: 40px 0 20px 0;
 }
 
 .search-tab-content .tab-pane {
@@ -12693,6 +12697,7 @@ ul.search-tabs li.active a {
 .tour-locations .box .details {
     padding: 15px 18px 18px;
     background: #fff;
+    text-align: center;
 }
 
 .tour-locations .box .features {

@@ -4,8 +4,8 @@
             <h2 class="entry-title">{{newsDetails.title}}</h2>
         </div>
         <ul class="breadcrumbs pull-right">
-            <li><a  routerLink='/home'>HOME</a></li>
-            <li><a  routerLink='/news'>News</a></li>
+            <li><a routerLink='/home'>HOME</a></li>
+            <li><a routerLink='/news'>News</a></li>
             <li class="active">News Details</li>
         </ul>
     </div>
@@ -25,37 +25,39 @@
                             <div [innerHtml]="newsDetails.description  "></div>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="sidebar col-sm-4 col-md-3">
-                         
-               
-                <div class="tab-container box">
+                <div class="travelo-box margin-bottom-40">
+                    <h5 class="box-title">About Phonix Developer</h5>
+                    <p>To help out for searching a right place on the earth which may fulfill your dream whether it could be to live with nature, to build a Dream House or may bring a great fortune for you.</p>
+                </div>
+
+                <div class="tab-container box margin-bottom-40">
                     <ul class="tabs full-width">
                         <li><a data-toggle="tab">News List</a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="recent-posts" class="tab-pane fade">
-                            
+
                         </div>
                         <div id="new-posts" class="tab-pane fade in active" *ngIf="newList">
                             <div class="image-box style14">
-                                <article class="box"  *ngFor="let article of newList">
-                                    <figure><a routerLink="/news/details/{{article.id}}" title=""><img width="63" height="59" src="{{article.image}}" alt=""></a></figure>
+                                <article class="box" *ngFor="let article of newList">
+                                    <figure>
+                                        <a routerLink="/news/details/{{article.id}}" title=""><img width="63" height="59" src="{{article.image}}" alt=""></a>
+                                    </figure>
                                     <div class="details">
-                                        <h5 class="box-title"><a routerLink="/news/details/{{article.id}}">{{article.title}}</a></h5>
-                                     </div>
+                                        <a routerLink="/news/details/{{article.id}}">{{article.title}}</a>
+                                    </div>
                                 </article>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="travelo-box">
-                    <h5 class="box-title">About Phonix Developer</h5>
-                    <p>To help out for searching a right place on the earth which may fulfill your dream whether it could be to live with nature, to build a Dream House or may bring a great fortune for you.</p>
-                </div>
-                <div class="travelo-box contact-box">
+
+                <div class="travelo-box contact-box margin-bottom-40">
                     <h4 class="box-title">Need Any Help?</h4>
                     <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
                     <address class="contact-details">
