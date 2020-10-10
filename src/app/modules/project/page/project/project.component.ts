@@ -20,7 +20,7 @@ export class ProjectComponent implements OnInit {
   projectList: any[] = [];
   locationList: any;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getPropertyList();
   }
   getProjectDetails(pid): any {
@@ -42,8 +42,12 @@ export class ProjectComponent implements OnInit {
           return item;
         });
         this.projectList = data;
+        console.log(this.projectList);
         this.loaderService.hideLoader();
       });
     });
+  }
+  toHTML(input): any {
+    return new DOMParser().parseFromString(input, 'text/html').documentElement.textContent;
   }
 }

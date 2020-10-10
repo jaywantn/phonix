@@ -14,6 +14,7 @@ import { ConfigService } from './config.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppConstants } from './app.constants';
 import { LoaderComponentComponent } from './modules/loader-component/loader-component.component';
+
 @NgModule({
   declarations: [
     AppComponent,

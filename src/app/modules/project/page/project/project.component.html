@@ -13,8 +13,27 @@
 <section id="content">
     <div class="container">
         <div id="main">
+            <div class="large-block row image-box style2">
+                <div class="row" *ngFor="let group of projectList">
+                    <article class="box">
+                        <div class="col-md-6 col-sm-12">
+                            <figure>
+                                <a (click)="getProjectDetails(group.pid)" title=""><img src="{{group.img}}" alt="{{group.title}}" width="270" height="192"></a>
+                            </figure>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="details">
+                                <h4>{{group.title}} <small>( {{group.plocationdistrict}} )</small></h4>
+                                <p>Plot size : {{group.seq}} sq ft, {{group.pt_name}}</p>
+                                <p></p>
+                                <p [innerHTML]="toHTML(group.intro)"></p>
+                                <a class="button btn-small" (click)="getProjectDetails(group.pid)">Know More <i class="soap-icon-longarrow-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
             <div class="row add-clearfix image-box style1 tour-locations">
-
                 <div class="col-sm-6 col-md-4 col-lg-4" *ngFor="let group of projectList">
                     <article class="box">
                         <figure>

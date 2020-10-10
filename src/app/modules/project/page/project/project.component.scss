@@ -1,3 +1,17 @@
 .action .button {
     background: #b96503;
 }
+
+.image-box .box>.details>*:last-child,
+.image-box.box>.details>*:last-child {
+    width: 100%;
+}
+
+.image-box.style2 figure {
+    float: none;
+    width: auto;
+}
+
+.image-box.style2 .details {
+    padding: 20px 0px;
+}
