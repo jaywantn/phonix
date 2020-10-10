@@ -25,7 +25,6 @@
                             <div class="details">
                                 <h4>{{group.title}} <small>( {{group.plocationdistrict}} )</small></h4>
                                 <p>Plot size : {{group.seq}} sq ft, {{group.pt_name}}</p>
-                                <p></p>
                                 <p [innerHTML]="toHTML(group.intro)"></p>
                                 <a class="button btn-small" (click)="getProjectDetails(group.pid)">Know More <i class="soap-icon-longarrow-right"></i></a>
                             </div>
@@ -33,7 +32,7 @@
                     </article>
                 </div>
             </div>
-            <div class="row add-clearfix image-box style1 tour-locations">
+            <!-- <div class="row add-clearfix image-box style1 tour-locations">
                 <div class="col-sm-6 col-md-4 col-lg-4" *ngFor="let group of projectList">
                     <article class="box">
                         <figure>
@@ -53,7 +52,7 @@
                         </div>
                     </article>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
