@@ -35,7 +35,7 @@ export class NavComponent implements OnInit {
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      mobile_no: ['', [ Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(10)]],
+      mobile_no: ['', [Validators.required]],
       message: ['', Validators.required]
     });
   }
@@ -61,8 +61,12 @@ export class NavComponent implements OnInit {
           this.submitted = false;
           this.formStatus = true;
         }
+        setTimeout(() => {
+          this.modalRef.hide();
+          this.formStatus = false;
+        }, 10000);
+        this.contactForm.reset();
       }
     );
-    this.contactForm.reset();
   }
 }

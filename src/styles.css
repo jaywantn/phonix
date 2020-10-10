@@ -116,16 +116,13 @@ gallery {
 }
 
 .enquiery-now a {
-    position: absolute;
-    right: 0;
     background: #b96503;
-    padding: 14.5px 40px;
-    color: #fff;
+    padding: 0px 20px !important;
     cursor: pointer;
-}
-
-.enquiery-now a:hover {
-    color: #fff;
+    height: 30px !important;
+    line-height: 30px !important;
+    margin-top: 12px;
+    color: #fff !important;
 }
 
 .modal-header .close {
@@ -146,9 +143,16 @@ gallery {
     text-transform: capitalize;
 }
 
+#main-menu ul.menu,
+.chaser ul.menu {
+    margin: 0;
+    float: right;
+    margin-right: 20px;
+}
+
 #header .main-menubar {
     width: 100%;
-    display: inline-flex;
+    display: inline-block;
     padding-left: 10px;
 }
 
@@ -159,6 +163,7 @@ gallery {
 .image-slider {
     display: block;
     width: 100%;
+    height: 580px;
 }
 
 .mobile-image-slider {

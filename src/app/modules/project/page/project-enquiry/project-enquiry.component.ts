@@ -19,12 +19,12 @@ export class ProjectEnquiryComponent implements OnInit {
     private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
-    this.pid = this.route.snapshot.paramMap.get("id");
+    this.pid = this.route.snapshot.paramMap.get('id');
 
     this.enquiryForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [ Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(10)]],
+      phone: ['', [ Validators.required]],
       message: ['', Validators.required],
       city: ['']
     });
@@ -43,13 +43,16 @@ export class ProjectEnquiryComponent implements OnInit {
        return;
    }
     const data = this.enquiryForm.value;
-    data["pid"] = this.pid ;
+    data['pid'] = this.pid ;
     this.projectService.sendPostRequest(data).subscribe(
       res => {
         if (res === 'success'){
-          this.submitted =true;
+          this.submitted = true;
           this.formStatus = true;
         }
+        setTimeout(() => {
+          this.formStatus = false;
+        }, 10000);
         console.log('response form', res);
       }
     );

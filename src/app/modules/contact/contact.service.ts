@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { AppConstants } from 'src/app/app.constants';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,7 @@ export class ContactService {
   }
 
   sendPostRequest(data: any): Observable<any> {
-      return this.http.post<any>(this.apiUrl + 'page/contactEnquiry', data);
+    return this.http.post<any>(this.apiUrl + 'page/contactEnquiry', data);
   }
   // Handle Errors
   error(error: HttpErrorResponse): any {
