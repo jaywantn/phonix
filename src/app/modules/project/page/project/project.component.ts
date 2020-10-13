@@ -58,16 +58,12 @@ export class ProjectComponent implements OnInit {
         if(dataValue === 0) {
           this.projectList = data;
         } else {
+          this.projectList = [];
           data.map(item => {
             if(dataValue.location === item.plocationdistrict || dataValue.propertyType === item.pt_name) {
-              this.projectList = [];
               this.projectList.push(item);
             }
-            console.log(item.plocationdistrict);
-            console.log(item.pt_name);
-            console.log(dataValue.location);
-            console.log(dataValue.propertyType);
-          })
+          });
         }
         this.loaderService.hideLoader();
       });
