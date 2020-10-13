@@ -16,28 +16,16 @@
                 <div class="col-sm-6 col-md-3">
                     <h2>POPULAR PROJECTS</h2>
                     <ul class="travel-news">
-                        <li>
+                        <li *ngFor="let footer of footerPropertyData">
                             <div class="thumb">
                                 <a href="#">
-                                    <img src="http://placehold.it/63x63" alt="" width="63" height="63" />
+                                    <img src="{{footer.img}}" alt="" width="63" height="63" />
                                 </a>
                             </div>
                             <div class="description">
-                                <h5 class="s-title"><a href="#">Silver Treasure</a></h5>
-                                <p>1 & 2 BHK Smart Homes in Talegaon</p>
-                                <span class="date"> 14.99 Lacs* - 36.89 Lacs</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="http://placehold.it/63x63" alt="" width="63" height="63" />
-                                </a>
-                            </div>
-                            <div class="description">
-                                <h5 class="s-title"><a href="#">Ranka Developers</a></h5>
-                                <p>Bungalow Plots in Talegaon</p>
-                                <span class="date">15 lakhs onwards</span>
+                                <h5 class="s-title"><a>{{footer.title}}</a></h5>
+                                <p>{{footer.address}} {{footer.lc_name}}</p>
+                                <span class="date"> {{footer.min_price}} - {{footer.max_price}}</span>
                             </div>
                         </li>
                     </ul>
@@ -45,7 +33,7 @@
 
                 <div class="col-sm-6 col-md-3">
                     <h2>ABOUT PHOENIX</h2>
-                    <p>Holiday Homes is a project by Asha Developers offering NA Plots, 2 BHK Twin Bungalow and 2 BHK Independent Bungalow at Pune.</p>
+                    <p>Phoenix is a project by Phoenix Land Developers offering NA Plots, 2 BHK Twin Bungalow and 2 BHK Independent Bungalow at Pune and Satara.</p>
                     <br />
                     <address class="contact-details" *ngIf="extraNo">
                       <span class="contact-phone"><i class="soap-icon-phone"></i> {{extraNo}}</span>

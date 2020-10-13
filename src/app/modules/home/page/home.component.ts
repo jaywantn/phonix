@@ -66,7 +66,6 @@ export class HomeComponent implements OnInit {
         return item;
       });
       this.banner = data;
-      console.log(this.banner);
     });
   }
 }

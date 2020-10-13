@@ -17,4 +17,8 @@ export class ConfigService {
     return this.http.get(this.apiUrl + 'page/generalDetails');
   }
 
+  public footerPropperty(): Observable<any> {
+    return this.http.get(this.apiUrl + 'property/propertyFooter');
+  }
+
 }
