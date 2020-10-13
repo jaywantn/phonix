@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppConstants } from 'src/app/app.constants';
+import { ConfigService } from 'src/app/config.service';
 import { LoadingService } from 'src/app/core/service/loading.service';
 import { HomeService } from 'src/app/modules/home/home.service';
 import { ProjectService } from '../../project.service';
@@ -10,23 +11,36 @@ import { ProjectService } from '../../project.service';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
+  searchPropertyData: any;
   constructor(
     private myService: HomeService,
     private router: Router,
     private loaderService: LoadingService,
     private projectService: ProjectService,
-    public appConstants: AppConstants ) {}
+    public appConstants: AppConstants,
+    public configService: ConfigService ) {}
 
   projectList: any[] = [];
   locationList: any;
 
   ngOnInit(): void {
-    this.getPropertyList();
+    this.getValueFromHomePage();
   }
+
+  getValueFromHomePage(): any {
+    this.configService.currentUser.subscribe(propertyData => {
+      this.searchPropertyData = propertyData;
+      this.getPropertyList(this.searchPropertyData);
+    }, err => {
+      console.log(err);
+    });
+  }
+
   getProjectDetails(pid): any {
     this.router.navigate(['/project/details/', pid] );
   }
-  getPropertyList(): void {
+
+  getPropertyList(dataValue): void {
     this.loaderService.showLoader();
     this.projectService.getPropertyList().subscribe((data: any[]) => {
       this.loaderService.showLoader();
@@ -41,12 +55,25 @@ export class ProjectComponent implements OnInit {
           item.img = this.appConstants.bannerURL + 'property/' + item.img;
           return item;
         });
-        this.projectList = data;
-        console.log(this.projectList);
+        if(dataValue === 0) {
+          this.projectList = data;
+        } else {
+          data.map(item => {
+            if(dataValue.location === item.plocationdistrict || dataValue.propertyType === item.pt_name) {
+              this.projectList = [];
+              this.projectList.push(item);
+            }
+            console.log(item.plocationdistrict);
+            console.log(item.pt_name);
+            console.log(dataValue.location);
+            console.log(dataValue.propertyType);
+          })
+        }
         this.loaderService.hideLoader();
       });
     });
   }
+
   toHTML(input): any {
     return new DOMParser().parseFromString(input, 'text/html').documentElement.textContent;
   }

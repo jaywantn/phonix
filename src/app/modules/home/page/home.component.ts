@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppConstants } from 'src/app/app.constants';
+import { ConfigService } from 'src/app/config.service';
 import { LoadingService } from 'src/app/core/service/loading.service';
 import { HomeService } from '../home.service';
 @Component({
@@ -14,15 +17,35 @@ export class HomeComponent implements OnInit {
   typeList: any;
   projectList: any;
   loading: any;
+  searchForm: FormGroup;
+  submitted = false;
 
-  constructor(private myService: HomeService, private loaderService: LoadingService, public appConstants: AppConstants) { }
+  constructor(
+    private myService: HomeService,
+    private formBuilder: FormBuilder,
+    private loaderService: LoadingService,
+    public appConstants: AppConstants,
+    public configService: ConfigService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getBanner();
     this.getLocation();
     this.getPropertyType();
     this.getPropertyList();
+
+    this.searchForm = this.formBuilder.group({
+      location: [''],
+      propertyType: ['']
+    });
   }
+
+  onSubmit(): void {
+    this.submitted = true;
+    this.configService.setPropertyToDisplay(this.searchForm.value);
+    this.router.navigate(['/project']);
+  }
+
   getLocation(): void {
     this.loaderService.showLoader();
     this.myService.getLocation().subscribe((data: any[]) => {
@@ -30,6 +53,7 @@ export class HomeComponent implements OnInit {
       this.loaderService.hideLoader();
     });
   }
+
   getPropertyType(): void {
     this.loaderService.showLoader();
     this.myService.getPropertyType().subscribe((data: any[]) => {

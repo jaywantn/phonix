@@ -28,7 +28,8 @@ import { LoaderComponentComponent } from './modules/loader-component/loader-comp
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     ModalModule.forRoot()
   ],
   providers: [

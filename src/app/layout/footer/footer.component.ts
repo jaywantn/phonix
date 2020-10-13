@@ -42,7 +42,6 @@ export class FooterComponent implements OnInit {
         return item;
       });
       this.footerPropertyData = data;
-      console.log(this.footerPropertyData);
     });
   }
 

@@ -12,28 +12,26 @@
         <div class="search-box container">
             <div class="search-tab-content">
                 <div class="tab-pane fade active in" id="hotels-tab">
-                    <form action="#" method="post">
+                    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-sm-12 col-md-2 padding-bottom-20">
                                     <h4 class="title">Find Property</h4>
                                 </div>
                                 <div class="col-sm-12 col-md-4 padding-bottom-20">
-                                    <!-- <label>Location</label> -->
-                                    <select class="full-width" name="location">
+                                    <select formControlName="location" class="full-width">
                                       <option value="">Location</option>
-                                      <option *ngFor="let location of locationList" [value]="location.lc_id" >{{location.lc_name}}</option>
+                                      <option *ngFor="let location of locationList" [value]="location.lc_name">{{location.lc_name}}</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-12 col-md-4 padding-bottom-20">
-                                    <!-- <label>Property Type</label> -->
-                                    <select class="full-width" name="type">
+                                    <select formControlName="propertyType" class="full-width">
                                       <option value="">Property Type</option>
-                                      <option  *ngFor="let typeP of typeList" [value]="typeP.pt_id" >{{typeP.pt_name}}</option>
+                                      <option *ngFor="let typeP of typeList" [value]="typeP.pt_name">{{typeP.pt_name}}</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-12 col-md-2 fixheight padding-bottom-20">
-                                    <button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1">SEARCH NOW</button>
+                                    <button class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1">SEARCH NOW</button>
                                 </div>
                             </div>
                         </div>
